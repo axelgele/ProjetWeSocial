@@ -49,6 +49,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         backgroundImage.contentMode = .scaleAspectFill
         self.view.insertSubview(backgroundImage, at:0)
         //
+        let hauteur = self.view.frame.size.height
+        print("WEEEESH", hauteur)
+        self.userPreference.set(hauteur, forKey: "screenHeight")
+        
+        let largeur = self.view.frame.size.width
+        print("WEEEEESH", largeur)
+        self.userPreference.set(largeur, forKey: "screenWidth")
         
         //Ajout du boutton a la vue
         loginButton.delegate = self
@@ -69,7 +76,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidAppear(_ animated: Bool) {
         if (self.userPreference.value(forKey: "idBD") != nil) {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Map") as! GoogleMapViewController
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
             self.present(nextViewController, animated:true, completion:nil)
         }
     }
@@ -81,16 +88,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     func fetchProfile() {
         
         //Déclaration des variables utile pour stocker les infos de l'utilisateur
-        var dict = NSDictionary()
-        let idUser: String
-        let first_name: String
-        let last_name: String
-        let gender: String
-        let email: String
-        //
+          var dict = NSDictionary()
+        
         
         //Variable pour récupérer les information via le SDK Facebook
-        let param = ["fields" : "id, email, first_name, last_name, picture, gender"]
+        let param = ["fields" : "id, email, first_name, last_name, picture.type(large), gender"]
         //
         
         //Déclaration du GraphFB avec les champs a récupérer
@@ -119,16 +121,24 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             let last_name = dict["last_name"] as! String
             let gender = dict["gender"] as! String
             //
-            
-            //Récupération de la PP
+                        
+            //Récupération de la PPLarge
             let picture = dict["picture"] as! NSDictionary, data = picture["data"] as! NSDictionary, urlString = data["url"] as! String, urlImage = URL(string: urlString)
             let dt = try? Data.init(contentsOf: urlImage!)
-            //
+            print("url Image : \(urlString)")
+            
+            let ppMkr = "http://graph.facebook.com/\(idUser)/picture?type=normal"
+            let urlppMkr = URL(string: ppMkr)
+            let dtMkr = try? Data.init(contentsOf: urlppMkr!)
+
+            
             
             //Stockage des données utilisateur
+            self.userPreference.set(idUser, forKey: "idFB")
             self.userPreference.set(first_name, forKey: "userFirstName")
             self.userPreference.set(gender, forKey: "userGender")
             self.userPreference.set(dt, forKey: "DataImage")
+            self.userPreference.set(dtMkr, forKey: "ppMkr")
             //
             
             print(idUser)
@@ -179,7 +189,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         //On bascule sur la Map
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Map") as! UINavigationController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
         self.present(nextViewController, animated:true, completion:nil)
         //
         

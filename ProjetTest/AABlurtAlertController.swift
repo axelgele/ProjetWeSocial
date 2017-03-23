@@ -2,26 +2,28 @@
 //  AABlurtAlertController.swift
 //  WeSocialSwift
 //
-//  Created by GRISERI Pierre on 03/03/2017.
-//  Copyright © 2017 LPDAM. All rights reserved.
+//  Created by Axel GELE on 03/03/2017.
 //
 
 import UIKit
 
 public enum AABlurActionStyle {
-    case `default`, cancel
+    case `default`, cancel, facebook, messenger
 }
+
 
 open class AABlurAlertAction: UIButton {
     fileprivate var handler: ((AABlurAlertAction) -> Void)? = nil
     fileprivate var style: AABlurActionStyle = AABlurActionStyle.default
     fileprivate var parent: AABlurAlertController? = nil
     
+    
     public init(title: String?, style: AABlurActionStyle, handler: ((AABlurAlertAction) -> Void)?) {
         super.init(frame: CGRect.zero)
         
         self.style = style
         self.handler = handler
+        
         
         self.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
         self.setTitle(title, for: UIControlState.normal)
@@ -31,13 +33,24 @@ open class AABlurAlertAction: UIButton {
             self.setTitleColor(UIColor(red:0.47, green:0.50, blue:0.55, alpha:1.00), for: UIControlState.normal)
             self.backgroundColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.00)
             self.layer.borderColor = UIColor(red:0.74, green:0.77, blue:0.79, alpha:1.00).cgColor
+            break
+        case .facebook:
+            self.setImage(#imageLiteral(resourceName: "facebook.png"), for: .normal)
+            self.frame.size.height = 60
+
+            break
+        case .messenger:
+            self.setImage(#imageLiteral(resourceName: "logoMessenger.png"), for: .normal)
+            self.frame.size.height = 60
+            break
         default:
             self.setTitleColor(UIColor.white, for: UIControlState.normal)
             self.backgroundColor = UIColor(red:0.31, green:0.57, blue:0.87, alpha:1.00)
             self.layer.borderColor = UIColor(red:0.17, green:0.38, blue:0.64, alpha:1.00).cgColor
+            
         }
         self.setTitleColor(self.titleColor(for: UIControlState.normal)?.withAlphaComponent(0.5), for: UIControlState.highlighted)
-        self.layer.borderWidth = 1
+        self.layer.borderWidth = 0
         self.layer.cornerRadius = 5
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
         self.layer.shadowRadius = 4
@@ -56,20 +69,24 @@ open class AABlurAlertAction: UIButton {
 }
 
 open class AABlurAlertController: UIViewController {
-    
     open var blurEffectStyle: UIBlurEffectStyle = .light
     open var imageHeight: Float = 175
+    
+    
     
     fileprivate var backgroundImage : UIImageView = UIImageView()
     fileprivate var alertView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+
         view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
         view.layer.cornerRadius = 5
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 15)
         view.layer.shadowRadius = 12
         view.layer.shadowOpacity = 0.22
+        view.layer.borderColor = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0).cgColor
+        view.layer.borderWidth = 2.0
         return view
     }()
     open var alertImage : UIImageView = {
@@ -96,11 +113,20 @@ open class AABlurAlertController: UIViewController {
         return lbl
     }()
     
+//    fileprivate var button : UIImageView{ //Button Axel
+//        let image = UIImageView()
+//        let button   = UIButton(type: UIButtonType.custom) as UIButton
+//        button.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
+//        button.setImage(#imageLiteral(resourceName: "facebook.png"), for: .normal)
+//        button.addTarget(self, action: Selector("btnTouched:"), for:.touchUpInside)
+//        return image
+//    }
+    
     fileprivate let buttonsStackView : UIStackView = {
         let sv = UIStackView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.distribution = .fillEqually
-        sv.spacing = 22
+        sv.spacing = 30
         return sv
     }()
     
@@ -134,8 +160,8 @@ open class AABlurAlertController: UIViewController {
         // Set up alertSubtitle
         self.alertView.addSubview(alertSubtitle)
         // Set up buttonsStackView
+        //self.alertView.addSubview(buttonsStackView)
         self.alertView.addSubview(buttonsStackView)
-        
         // Set up background Tap
         if buttonsStackView.arrangedSubviews.count <= 0 {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnBackground))
@@ -147,6 +173,10 @@ open class AABlurAlertController: UIViewController {
     }
     
     fileprivate func setupConstraints() {
+        let userPref = UserDefaults.standard
+        
+        
+        
         let viewsDict: [String: Any] = [
             "alertView": alertView,
             "alertImage": alertImage,
@@ -155,13 +185,22 @@ open class AABlurAlertController: UIViewController {
             "buttonsStackView": buttonsStackView
         ]
         let spacing = 16
+        
+        let screenHeight = userPref.value(forKey: "screenHeight") as! Float
+        let dividedHeight = screenHeight / 8 * 4
+        print(userPref.value(forKey: "screenHeight")!, "Aloooors")
+        
+        let screenWidth = userPref.value(forKey: "screenWidth") as! Float
+        let dividedWidth = screenWidth / 8 * 7
+        print(userPref.value(forKey: "screenWidth")!, "Alooooors")
+        
         let viewMetrics: [String: Any] = [
             "margin": spacing * 2,
             "spacing": spacing,
-            "alertViewWidth": 450,
+            "alertViewWidth" : dividedWidth,
             "alertImageHeight": (alertImage.image != nil) ? imageHeight : 0,
             "alertTitleHeight": 22,
-            "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 40 : 0
+            "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 90 : 0,
         ]
         
         let alertSubtitleVconstraint = (alertSubtitle.text != nil) ? "spacing-[alertSubtitle]-" : ""

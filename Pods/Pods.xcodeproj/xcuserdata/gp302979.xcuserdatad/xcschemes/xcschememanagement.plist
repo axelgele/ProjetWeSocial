@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-ProjetTest.xcscheme</key>
+		<key>Pods-WeSocial.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>WARangeSlider.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -12,7 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>15DE1B5B111E3A19DFA6E7FF98A61A03</key>
+		<key>05C67B9E88B526A7CC2A8302F26D7B8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB23A6D86F3B8965FF61D61F5CED6069</key>
 		<dict>
 			<key>primary</key>
 			<true/>

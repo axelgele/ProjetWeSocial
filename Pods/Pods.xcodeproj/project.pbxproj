@@ -7,110 +7,145 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2BA3ACDBA7F0C5E9317D9B2AE0F0CC50 /* Pods-ProjetTest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8916DAA6381A9B3189E5CF75FF0BC65B /* Pods-ProjetTest-dummy.m */; };
-		A239126579BCD8BCF0D132A10F39132C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		BC32D374569182C33B5B42F61B7CAE2F /* Pods-ProjetTest-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FCD0B40B6B303D5777ADE734B75E9A1A /* Pods-ProjetTest-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3154940D4254A3857EC39F969D20F6D5 /* Pods-WeSocial-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A4386CDE6E4D56331B4F9314508F0C /* Pods-WeSocial-dummy.m */; };
+		3555A65A544488805678C69BF1053377 /* WARangeSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C77F6EF9436BF507E97FDCF3C2F6BB8 /* WARangeSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53BC1226C99AFDDFFD6F1BA6233DA177 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDABCB4F3E54B24C61FBDF8C2FE7E1E /* RangeSlider.swift */; };
+		B08E297D47390A78B71D025CA0BA2F2A /* Pods-WeSocial-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F3E652FD13F55F3BB83682F962E947E /* Pods-WeSocial-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB3A857E22049E6CE48A548A446643B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		C289C0C8104EC181FD4FD8F062E9D18C /* WARangeSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CFA43854C11C927183A6DB25A6E5 /* WARangeSlider-dummy.m */; };
+		FEB733581BE87D8FAC0A3539988C3CA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		105793162F54A70EB15B4EF417DFA909 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB23A6D86F3B8965FF61D61F5CED6069;
+			remoteInfo = WARangeSlider;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		08F987F10ED4186BF3418042F9181CA1 /* Pods-ProjetTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ProjetTest.debug.xcconfig"; sourceTree = "<group>"; };
-		0E49AB4ABDF0611A447A04BAE20300D0 /* Pods-ProjetTest-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ProjetTest-frameworks.sh"; sourceTree = "<group>"; };
-		1234688851B1CE816E82E7ECF6FB1D56 /* Pods-ProjetTest-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ProjetTest-resources.sh"; sourceTree = "<group>"; };
-		19262DA679C9B091F80F422381E31C70 /* Pods-ProjetTest.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ProjetTest.modulemap"; sourceTree = "<group>"; };
-		36DB83CB4279B90D59054691B89501D1 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
-		4A3CECE9D5FB7955B3CDC0D466370500 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
-		5EBAA33A707257EE2BE20DA773BFDB95 /* Pods_ProjetTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ProjetTest.framework; path = "Pods-ProjetTest.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		606ECEF4C964F37A0A05DDC033E707E3 /* Pods-ProjetTest-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ProjetTest-acknowledgements.markdown"; sourceTree = "<group>"; };
-		829884750A4CD012135E6C5413871CE4 /* Pods-ProjetTest-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ProjetTest-acknowledgements.plist"; sourceTree = "<group>"; };
-		8916DAA6381A9B3189E5CF75FF0BC65B /* Pods-ProjetTest-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ProjetTest-dummy.m"; sourceTree = "<group>"; };
+		0BF2B2B6EA137360467F46C58F06C446 /* WARangeSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = WARangeSlider.modulemap; sourceTree = "<group>"; };
+		105FDB30FCFEF9127AA29E974C2882F1 /* WARangeSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WARangeSlider.xcconfig; sourceTree = "<group>"; };
+		2F7BFE1E498A666D56B3F9EEB9C6922A /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		36CBCDE101EACB93FD063E759700778D /* WARangeSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WARangeSlider-prefix.pch"; sourceTree = "<group>"; };
+		4D87081B22BCEE9EA3B9DB44B6EC2610 /* WARangeSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WARangeSlider.framework; path = WARangeSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51BFF0ABE4989C8E86B525286295152F /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		5C77F6EF9436BF507E97FDCF3C2F6BB8 /* WARangeSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WARangeSlider-umbrella.h"; sourceTree = "<group>"; };
+		5E0863CF653E4FA689149773B763E544 /* Pods-WeSocial-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WeSocial-frameworks.sh"; sourceTree = "<group>"; };
+		65896538276E425B9FDAAFE65D10294A /* Pods-WeSocial-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WeSocial-acknowledgements.markdown"; sourceTree = "<group>"; };
+		673FE409E07E643F19ECF49484C33698 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		6F3E652FD13F55F3BB83682F962E947E /* Pods-WeSocial-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WeSocial-umbrella.h"; sourceTree = "<group>"; };
+		7EA3958507B6C5FCC6BA3F6E4BD993A2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F464952B7E1D352FFB1A5D03F500B86 /* Pods-WeSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeSocial.release.xcconfig"; sourceTree = "<group>"; };
+		9318F451A2C011F3E0BC5424F24B142A /* Pods_WeSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WeSocial.framework; path = "Pods-WeSocial.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AC367C9BE59C649B01E7A29792394C89 /* Pods-ProjetTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ProjetTest.release.xcconfig"; sourceTree = "<group>"; };
+		95E31D0488F6F5879A7F743A47DA812E /* Pods-WeSocial-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeSocial-acknowledgements.plist"; sourceTree = "<group>"; };
+		ADD7CFA43854C11C927183A6DB25A6E5 /* WARangeSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WARangeSlider-dummy.m"; sourceTree = "<group>"; };
+		C5FA4BC22CA2425B49233C1006C09835 /* Pods-WeSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeSocial.debug.xcconfig"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E004374149D836C1256FFFCB38FECB72 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
-		E3AB363B917FC536FDFAC617FF28139F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F95DB7ACF73CF03040C57A3D42223A51 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
-		FCD0B40B6B303D5777ADE734B75E9A1A /* Pods-ProjetTest-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ProjetTest-umbrella.h"; sourceTree = "<group>"; };
+		D03EFFD88B916F5AA8BD5DBA819F99AF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D274433BF57FE91C8D5DB1997769FAE9 /* Pods-WeSocial-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WeSocial-resources.sh"; sourceTree = "<group>"; };
+		D7BCD321B9B082BDCDFA3430AAC97867 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		D98CC13F3990693CE50EC8BBE7135365 /* Pods-WeSocial.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-WeSocial.modulemap"; sourceTree = "<group>"; };
+		D9A4386CDE6E4D56331B4F9314508F0C /* Pods-WeSocial-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WeSocial-dummy.m"; sourceTree = "<group>"; };
+		DFDABCB4F3E54B24C61FBDF8C2FE7E1E /* RangeSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangeSlider.swift; path = RangeSlider/RangeSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		21E2D8CC025E8ADD79D43752C67628C2 /* Frameworks */ = {
+		3FBC55435000FF98EEB451153718453F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A239126579BCD8BCF0D132A10F39132C /* Foundation.framework in Frameworks */,
+				BB3A857E22049E6CE48A548A446643B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAC96793BE16475C833C3A26CBB575E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEB733581BE87D8FAC0A3539988C3CA8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1418B056D31B27EE2CEBA552B5ADFE56 /* Base */ = {
+		0FAB45350EF671352EE08A2351E720E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				501562BF592517FC6A65661FF1B35C78 /* Frameworks */,
-			);
-			name = Base;
-			sourceTree = "<group>";
-		};
-		243FAC914C81DCF02EFAD12598762AD5 /* GoogleMaps */ = {
-			isa = PBXGroup;
-			children = (
-				1418B056D31B27EE2CEBA552B5ADFE56 /* Base */,
-				6BC99F081C91F80679CFA5DDC6213D57 /* Maps */,
-			);
-			name = GoogleMaps;
-			path = GoogleMaps;
-			sourceTree = "<group>";
-		};
-		295BC60287C06CD5287517482AC13DA5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5EBAA33A707257EE2BE20DA773BFDB95 /* Pods_ProjetTest.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		372BE5FEC420C89F0126E2A9CF254EFA /* Pods-ProjetTest */ = {
-			isa = PBXGroup;
-			children = (
-				E3AB363B917FC536FDFAC617FF28139F /* Info.plist */,
-				19262DA679C9B091F80F422381E31C70 /* Pods-ProjetTest.modulemap */,
-				606ECEF4C964F37A0A05DDC033E707E3 /* Pods-ProjetTest-acknowledgements.markdown */,
-				829884750A4CD012135E6C5413871CE4 /* Pods-ProjetTest-acknowledgements.plist */,
-				8916DAA6381A9B3189E5CF75FF0BC65B /* Pods-ProjetTest-dummy.m */,
-				0E49AB4ABDF0611A447A04BAE20300D0 /* Pods-ProjetTest-frameworks.sh */,
-				1234688851B1CE816E82E7ECF6FB1D56 /* Pods-ProjetTest-resources.sh */,
-				FCD0B40B6B303D5777ADE734B75E9A1A /* Pods-ProjetTest-umbrella.h */,
-				08F987F10ED4186BF3418042F9181CA1 /* Pods-ProjetTest.debug.xcconfig */,
-				AC367C9BE59C649B01E7A29792394C89 /* Pods-ProjetTest.release.xcconfig */,
-			);
-			name = "Pods-ProjetTest";
-			path = "Target Support Files/Pods-ProjetTest";
-			sourceTree = "<group>";
-		};
-		501562BF592517FC6A65661FF1B35C78 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E004374149D836C1256FFFCB38FECB72 /* GoogleMapsBase.framework */,
+				51BFF0ABE4989C8E86B525286295152F /* GoogleMapsBase.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6B9DDBFD34805D0CECB3FE7AA6B7B594 /* Pods */ = {
+		28F1D29CE9F76503BA32B339A5A3147B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				243FAC914C81DCF02EFAD12598762AD5 /* GoogleMaps */,
+				7EA3958507B6C5FCC6BA3F6E4BD993A2 /* Info.plist */,
+				0BF2B2B6EA137360467F46C58F06C446 /* WARangeSlider.modulemap */,
+				105FDB30FCFEF9127AA29E974C2882F1 /* WARangeSlider.xcconfig */,
+				ADD7CFA43854C11C927183A6DB25A6E5 /* WARangeSlider-dummy.m */,
+				36CBCDE101EACB93FD063E759700778D /* WARangeSlider-prefix.pch */,
+				5C77F6EF9436BF507E97FDCF3C2F6BB8 /* WARangeSlider-umbrella.h */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/WARangeSlider";
 			sourceTree = "<group>";
 		};
-		6BC99F081C91F80679CFA5DDC6213D57 /* Maps */ = {
+		30390199951D3483403F80C9E4A46894 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				E10253D9A6AF596CDA1C3BBE1F2FBFD6 /* Frameworks */,
-				7679C02ACA204A8841D527A6548CA23E /* Resources */,
+				740050AE8CA94D1B9B7B8B7E7F396D74 /* Frameworks */,
+				4CCFF68BFCB3CFFBEC2EB8C3613B2856 /* Resources */,
 			);
 			name = Maps;
+			sourceTree = "<group>";
+		};
+		3760802A563EF13A6D8FA55DE6AB0A09 /* Pods-WeSocial */ = {
+			isa = PBXGroup;
+			children = (
+				D03EFFD88B916F5AA8BD5DBA819F99AF /* Info.plist */,
+				D98CC13F3990693CE50EC8BBE7135365 /* Pods-WeSocial.modulemap */,
+				65896538276E425B9FDAAFE65D10294A /* Pods-WeSocial-acknowledgements.markdown */,
+				95E31D0488F6F5879A7F743A47DA812E /* Pods-WeSocial-acknowledgements.plist */,
+				D9A4386CDE6E4D56331B4F9314508F0C /* Pods-WeSocial-dummy.m */,
+				5E0863CF653E4FA689149773B763E544 /* Pods-WeSocial-frameworks.sh */,
+				D274433BF57FE91C8D5DB1997769FAE9 /* Pods-WeSocial-resources.sh */,
+				6F3E652FD13F55F3BB83682F962E947E /* Pods-WeSocial-umbrella.h */,
+				C5FA4BC22CA2425B49233C1006C09835 /* Pods-WeSocial.debug.xcconfig */,
+				8F464952B7E1D352FFB1A5D03F500B86 /* Pods-WeSocial.release.xcconfig */,
+			);
+			name = "Pods-WeSocial";
+			path = "Target Support Files/Pods-WeSocial";
+			sourceTree = "<group>";
+		};
+		4CCFF68BFCB3CFFBEC2EB8C3613B2856 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D7BCD321B9B082BDCDFA3430AAC97867 /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4EB804DB4D457C4E03298760E8161E93 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3760802A563EF13A6D8FA55DE6AB0A09 /* Pods-WeSocial */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		740050AE8CA94D1B9B7B8B7E7F396D74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F7BFE1E498A666D56B3F9EEB9C6922A /* GoogleMaps.framework */,
+				673FE409E07E643F19ECF49484C33698 /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
@@ -121,23 +156,42 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7679C02ACA204A8841D527A6548CA23E /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4A3CECE9D5FB7955B3CDC0D466370500 /* GoogleMaps.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				6B9DDBFD34805D0CECB3FE7AA6B7B594 /* Pods */,
-				295BC60287C06CD5287517482AC13DA5 /* Products */,
-				F7B3F5A84C82AC9BE4DC42DC480F2C6C /* Targets Support Files */,
+				CE1B7B403B633280EF29030501D09B2E /* Pods */,
+				952F5D03AC11325FBA3B7F0D4C9DBA13 /* Products */,
+				4EB804DB4D457C4E03298760E8161E93 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		84D08D8C8F7ED27FE1B6893EB4665CB7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0FAB45350EF671352EE08A2351E720E2 /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		90BD6134D8DB6004C632F5EC49D6540A /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				84D08D8C8F7ED27FE1B6893EB4665CB7 /* Base */,
+				30390199951D3483403F80C9E4A46894 /* Maps */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		952F5D03AC11325FBA3B7F0D4C9DBA13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9318F451A2C011F3E0BC5424F24B142A /* Pods_WeSocial.framework */,
+				4D87081B22BCEE9EA3B9DB44B6EC2610 /* WARangeSlider.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -148,52 +202,80 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E10253D9A6AF596CDA1C3BBE1F2FBFD6 /* Frameworks */ = {
+		CE1B7B403B633280EF29030501D09B2E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F95DB7ACF73CF03040C57A3D42223A51 /* GoogleMaps.framework */,
-				36DB83CB4279B90D59054691B89501D1 /* GoogleMapsCore.framework */,
+				90BD6134D8DB6004C632F5EC49D6540A /* GoogleMaps */,
+				CF0224F78CCFF9C443CC3022DEE643EF /* WARangeSlider */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		F7B3F5A84C82AC9BE4DC42DC480F2C6C /* Targets Support Files */ = {
+		CF0224F78CCFF9C443CC3022DEE643EF /* WARangeSlider */ = {
 			isa = PBXGroup;
 			children = (
-				372BE5FEC420C89F0126E2A9CF254EFA /* Pods-ProjetTest */,
+				DFDABCB4F3E54B24C61FBDF8C2FE7E1E /* RangeSlider.swift */,
+				28F1D29CE9F76503BA32B339A5A3147B /* Support Files */,
 			);
-			name = "Targets Support Files";
+			name = WARangeSlider;
+			path = WARangeSlider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		C75B0E4A9CBF76654F473B7B0E463E92 /* Headers */ = {
+		20476B4DECC2C8D45DB1CC9C2301D080 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC32D374569182C33B5B42F61B7CAE2F /* Pods-ProjetTest-umbrella.h in Headers */,
+				3555A65A544488805678C69BF1053377 /* WARangeSlider-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8154F333AB2983957A49D11D03F7AF19 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B08E297D47390A78B71D025CA0BA2F2A /* Pods-WeSocial-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		15DE1B5B111E3A19DFA6E7FF98A61A03 /* Pods-ProjetTest */ = {
+		05C67B9E88B526A7CC2A8302F26D7B8B /* Pods-WeSocial */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 01AC0E0D985375B76997BE9341FAB7B4 /* Build configuration list for PBXNativeTarget "Pods-ProjetTest" */;
+			buildConfigurationList = E1D13917DB898D86324F7EF7429D0372 /* Build configuration list for PBXNativeTarget "Pods-WeSocial" */;
 			buildPhases = (
-				37A1044F7206287AE566CE779F0DC80E /* Sources */,
-				21E2D8CC025E8ADD79D43752C67628C2 /* Frameworks */,
-				C75B0E4A9CBF76654F473B7B0E463E92 /* Headers */,
+				E4A270B667A3905A091520E78C7D7451 /* Sources */,
+				3FBC55435000FF98EEB451153718453F /* Frameworks */,
+				8154F333AB2983957A49D11D03F7AF19 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0254E9833825ACBDE92030820FF2BD1A /* PBXTargetDependency */,
+			);
+			name = "Pods-WeSocial";
+			productName = "Pods-WeSocial";
+			productReference = 9318F451A2C011F3E0BC5424F24B142A /* Pods_WeSocial.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FB23A6D86F3B8965FF61D61F5CED6069 /* WARangeSlider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AD44BD0293A8D38FD24BCE5BB8019F4 /* Build configuration list for PBXNativeTarget "WARangeSlider" */;
+			buildPhases = (
+				BB4C11E931B8FED095790FDDC6B589E5 /* Sources */,
+				7AAC96793BE16475C833C3A26CBB575E /* Frameworks */,
+				20476B4DECC2C8D45DB1CC9C2301D080 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-ProjetTest";
-			productName = "Pods-ProjetTest";
-			productReference = 5EBAA33A707257EE2BE20DA773BFDB95 /* Pods_ProjetTest.framework */;
+			name = WARangeSlider;
+			productName = WARangeSlider;
+			productReference = 4D87081B22BCEE9EA3B9DB44B6EC2610 /* WARangeSlider.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -213,30 +295,49 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 295BC60287C06CD5287517482AC13DA5 /* Products */;
+			productRefGroup = 952F5D03AC11325FBA3B7F0D4C9DBA13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				15DE1B5B111E3A19DFA6E7FF98A61A03 /* Pods-ProjetTest */,
+				05C67B9E88B526A7CC2A8302F26D7B8B /* Pods-WeSocial */,
+				FB23A6D86F3B8965FF61D61F5CED6069 /* WARangeSlider */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		37A1044F7206287AE566CE779F0DC80E /* Sources */ = {
+		BB4C11E931B8FED095790FDDC6B589E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BA3ACDBA7F0C5E9317D9B2AE0F0CC50 /* Pods-ProjetTest-dummy.m in Sources */,
+				53BC1226C99AFDDFFD6F1BA6233DA177 /* RangeSlider.swift in Sources */,
+				C289C0C8104EC181FD4FD8F062E9D18C /* WARangeSlider-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4A270B667A3905A091520E78C7D7451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3154940D4254A3857EC39F969D20F6D5 /* Pods-WeSocial-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0254E9833825ACBDE92030820FF2BD1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WARangeSlider;
+			target = FB23A6D86F3B8965FF61D61F5CED6069 /* WARangeSlider */;
+			targetProxy = 105793162F54A70EB15B4EF417DFA909 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		41B83C3CD157884852158CCA5CEB8E4D /* Release */ = {
+		0241A3738968BB08F52CBD883B0EA645 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC367C9BE59C649B01E7A29792394C89 /* Pods-ProjetTest.release.xcconfig */;
+			baseConfigurationReference = 105FDB30FCFEF9127AA29E974C2882F1 /* WARangeSlider.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -249,25 +350,91 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-ProjetTest/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/WARangeSlider/WARangeSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WARangeSlider/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ProjetTest/Pods-ProjetTest.modulemap";
+				MODULEMAP_FILE = "Target Support Files/WARangeSlider/WARangeSlider.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ProjetTest;
+				PRODUCT_NAME = WARangeSlider;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		0B1741D1C94CF8A6CE78AD2C8F41D814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 105FDB30FCFEF9127AA29E974C2882F1 /* WARangeSlider.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/WARangeSlider/WARangeSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WARangeSlider/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/WARangeSlider/WARangeSlider.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = WARangeSlider;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		19BC4F6264CF1E292A685202AF6418D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5FA4BC22CA2425B49233C1006C09835 /* Pods-WeSocial.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-WeSocial/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WeSocial/Pods-WeSocial.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_WeSocial;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -313,40 +480,40 @@
 			};
 			name = Debug;
 		};
-		AE4A2AB8A5ECD5155965DD82C5F3DC64 /* Debug */ = {
+		63EB1E7A69085A24C9F7303654A5591B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08F987F10ED4186BF3418042F9181CA1 /* Pods-ProjetTest.debug.xcconfig */;
+			baseConfigurationReference = 8F464952B7E1D352FFB1A5D03F500B86 /* Pods-WeSocial.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-ProjetTest/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-WeSocial/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ProjetTest/Pods-ProjetTest.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MODULEMAP_FILE = "Target Support Files/Pods-WeSocial/Pods-WeSocial.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ProjetTest;
+				PRODUCT_NAME = Pods_WeSocial;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		B7324857C38B065FEB1EEE3105C2367A /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -391,20 +558,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		01AC0E0D985375B76997BE9341FAB7B4 /* Build configuration list for PBXNativeTarget "Pods-ProjetTest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AE4A2AB8A5ECD5155965DD82C5F3DC64 /* Debug */,
-				41B83C3CD157884852158CCA5CEB8E4D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */,
 				B7324857C38B065FEB1EEE3105C2367A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AD44BD0293A8D38FD24BCE5BB8019F4 /* Build configuration list for PBXNativeTarget "WARangeSlider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B1741D1C94CF8A6CE78AD2C8F41D814 /* Debug */,
+				0241A3738968BB08F52CBD883B0EA645 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1D13917DB898D86324F7EF7429D0372 /* Build configuration list for PBXNativeTarget "Pods-WeSocial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19BC4F6264CF1E292A685202AF6418D3 /* Debug */,
+				63EB1E7A69085A24C9F7303654A5591B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
