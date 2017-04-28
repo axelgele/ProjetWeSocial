@@ -54,10 +54,10 @@ class PreferenceViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         //        layoutSwift.layer.cornerRadius = 8
         
-        rangeSlider.frame = CGRect(x: 5, y: (viewAge.frame.size.height / 2) - 10 , width: (viewAge.frame.size.width ) - 10 , height: 20)
+        rangeSlider.frame = CGRect(x: 5, y: (viewAge.frame.size.height / 2)  , width: (viewAge.frame.size.width ) - 20 , height: 20)
         rangeSlider.addTarget(self, action:#selector(sliderValueDidChange(sender:)), for: .valueChanged)
-        rangeSlider.minimumValue = 18
-        rangeSlider.maximumValue = 55
+//        rangeSlider.minimumValue = 18
+//        rangeSlider.maximumValue = 55
         viewAge.addSubview(rangeSlider)
         
 

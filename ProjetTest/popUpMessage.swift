@@ -1,24 +1,25 @@
 //
-//  AABlurtAlertController.swift
-//  WeSocialSwift
+//  popUpMessage.swift
+//  WeSocial
 //
-//  Created by Axel GELE on 03/03/2017.
+//  Created by GRISERI Pierre on 30/03/2017.
+//  Copyright © 2017 LPDAM. All rights reserved.
 //
 
 import UIKit
 
-public enum AABlurActionStyle {
+public enum popUpMessageActionStyle {
     case `default`, cancel, facebook, messenger
 }
 
 
-open class AABlurAlertAction: UIButton {
-    fileprivate var handler: ((AABlurAlertAction) -> Void)? = nil
-    fileprivate var style: AABlurActionStyle = AABlurActionStyle.default
-    fileprivate var parent: AABlurAlertController? = nil
+open class popUpMessageAction: UIButton {
+    fileprivate var handler: ((popUpMessageAction) -> Void)? = nil
+    fileprivate var style: popUpMessageActionStyle = popUpMessageActionStyle.default
+    fileprivate var parent: popUpMessageController? = nil
     
     
-    public init(title: String?, style: AABlurActionStyle, handler: ((AABlurAlertAction) -> Void)?) {
+    public init(title: String?, style: popUpMessageActionStyle, handler: ((popUpMessageAction) -> Void)?) {
         super.init(frame: CGRect.zero)
         
         self.style = style
@@ -35,14 +36,12 @@ open class AABlurAlertAction: UIButton {
             self.layer.borderColor = UIColor(red:0.74, green:0.77, blue:0.79, alpha:1.00).cgColor
             break
         case .facebook:
-            let fb = UIImage(named: "facebook.png")
-            self.setImage(fb, for: .normal)
+            self.setImage(#imageLiteral(resourceName: "fb.png"), for: .normal)
             self.frame.size.height = 60
-
+            
             break
         case .messenger:
-            let messenger = UIImage(named: "facebookmessenger.png")
-            self.setImage(messenger, for: .normal)
+            self.setImage(#imageLiteral(resourceName: "facebookmessenger.png"), for: .normal)
             self.frame.size.height = 60
             break
         default:
@@ -63,14 +62,14 @@ open class AABlurAlertAction: UIButton {
         super.init(coder: aDecoder)
     }
     
-    @objc fileprivate func buttonTapped(_ sender: AABlurAlertAction) {
+    @objc fileprivate func buttonTapped(_ sender: popUpMessageAction) {
         self.parent?.dismiss(animated: true, completion: {
             self.handler?(sender)
         })
     }
 }
 
-open class AABlurAlertController: UIViewController {
+open class popUpMessageController: UIViewController, UITextViewDelegate {
     open var blurEffectStyle: UIBlurEffectStyle = .light
     open var imageHeight: Float = 175
     
@@ -80,7 +79,7 @@ open class AABlurAlertController: UIViewController {
     fileprivate var alertView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-
+        
         view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
         view.layer.cornerRadius = 5
         view.layer.shadowColor = UIColor.black.cgColor
@@ -91,12 +90,14 @@ open class AABlurAlertController: UIViewController {
         view.layer.borderWidth = 2.0
         return view
     }()
+    
     open var alertImage : UIImageView = {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.contentMode = .scaleAspectFit
         return imgView
     }()
+    
     open let alertTitle : UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -105,24 +106,41 @@ open class AABlurAlertController: UIViewController {
         lbl.textAlignment = .center
         return lbl
     }()
-    open let alertSubtitle : UILabel = {
-        let lbl = UILabel()
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.boldSystemFont(ofSize: 14)
-        lbl.textColor = UIColor(red:0.51, green:0.54, blue:0.58, alpha:1.00)
-        lbl.textAlignment = .center
-        lbl.numberOfLines = 0
-        return lbl
+    
+    open let edittext : UITextView = {
+        let userPref = UserDefaults.standard
+        var screenWidth = userPref.value(forKey: "screenWidth") as! Float
+        screenWidth = screenWidth - 90
+        let rect        = CGRect(x: 20, y: 20, width: Double(screenWidth) , height: 50.2)
+        let textView    = UITextView(frame: rect)
+        textView.font               = UIFont(name: "Helvetica", size: 15)
+        textView.textColor          = UIColor.lightGray
+        textView.backgroundColor    = UIColor.white
+        textView.layer.borderColor  = UIColor.lightGray.cgColor
+        textView.layer.borderWidth  = 1.0
+        textView.text               = "Enter message here"
+        textView.layer.borderColor  = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0).cgColor
+        return textView
     }()
     
-//    fileprivate var button : UIImageView{ //Button Axel
-//        let image = UIImageView()
-//        let button   = UIButton(type: UIButtonType.custom) as UIButton
-//        button.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
-//        button.setImage(#imageLiteral(resourceName: "facebook.png"), for: .normal)
-//        button.addTarget(self, action: Selector("btnTouched:"), for:.touchUpInside)
-//        return image
-//    }
+    open let button : UIButton = {
+        
+        let monBoutton = UIButton(type: UIButtonType.system)
+        monBoutton.setTitle("Publier", for: .normal)
+        //        monBoutton.frame = CGRect(x: , y: 50, width: 50, height: 50)
+        
+        return monBoutton
+    }()
+    
+    
+    //    fileprivate var button : UIImageView{ //Button Axel
+    //        let image = UIImageView()
+    //        let button   = UIButton(type: UIButtonType.custom) as UIButton
+    //        button.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
+    //        button.setImage(#imageLiteral(resourceName: "facebook.png"), for: .normal)
+    //        button.addTarget(self, action: Selector("btnTouched:"), for:.touchUpInside)
+    //        return image
+    //    }
     
     fileprivate let buttonsStackView : UIStackView = {
         let sv = UIStackView()
@@ -160,8 +178,11 @@ open class AABlurAlertController: UIViewController {
         // Set up alertTitle
         self.alertView.addSubview(alertTitle)
         // Set up alertSubtitle
-        self.alertView.addSubview(alertSubtitle)
+        self.alertView.addSubview(edittext)
         // Set up buttonsStackView
+        self.alertView.addSubview(button)
+
+        
         //self.alertView.addSubview(buttonsStackView)
         self.alertView.addSubview(buttonsStackView)
         // Set up background Tap
@@ -183,14 +204,15 @@ open class AABlurAlertController: UIViewController {
             "alertView": alertView,
             "alertImage": alertImage,
             "alertTitle": alertTitle,
-            "alertSubtitle": alertSubtitle,
+            "edittext": edittext,
+            "button" : button,
             "buttonsStackView": buttonsStackView
         ]
         let spacing = 16
         
-      //  let screenHeight = userPref.value(forKey: "screenHeight") as! Float
-      //  let dividedHeight = screenHeight / 8 * 4
-        print(userPref.value(forKey: "screenHeight")!, "Aloooors")
+       /* let screenHeight = userPref.value(forKey: "screenHeight") as! Float
+        let dividedHeight = screenHeight / 8 * 4
+        print(userPref.value(forKey: "screenHeight")!, "Aloooors") */
         
         let screenWidth = userPref.value(forKey: "screenWidth") as! Float
         let dividedWidth = screenWidth / 8 * 7
@@ -203,15 +225,15 @@ open class AABlurAlertController: UIViewController {
             "alertImageHeight": (alertImage.image != nil) ? imageHeight : 0,
             "alertTitleHeight": 22,
             "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 90 : 0,
-        ]
+            ]
         
-        let alertSubtitleVconstraint = (alertSubtitle.text != nil) ? "spacing-[alertSubtitle]-" : ""
+        let edittextVconstraint = (edittext.text != nil) ? "spacing-[edittext]-" : ""
         [NSLayoutConstraint(item: alertView, attribute: .centerX, relatedBy: .equal,
                             toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
          NSLayoutConstraint(item: alertView, attribute: .centerY, relatedBy: .equal,
                             toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
             ].forEach { self.view.addConstraint($0)}
-        [NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(alertSubtitleVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
+        [NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(edittextVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
             options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:[alertView(alertViewWidth)]",
                                         options: [], metrics: viewMetrics, views: viewsDict),
@@ -219,7 +241,9 @@ open class AABlurAlertController: UIViewController {
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertTitle]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
-         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertSubtitle]-margin-|",
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[edittext]-margin-|",
+                                        options: [], metrics: viewMetrics, views: viewsDict),
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[button]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[buttonsStackView]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict)
@@ -247,7 +271,7 @@ open class AABlurAlertController: UIViewController {
         backgroundImage.addSubview(blurEffectView)
     }
     
-    open func addAction(action: AABlurAlertAction) {
+    open func addAction(action: popUpMessageAction) {
         action.parent = self
         buttonsStackView.addArrangedSubview(action)
     }

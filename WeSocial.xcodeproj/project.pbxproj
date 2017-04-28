@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		209CCC27BC14FA44DAF093CE /* Pods_ProjetTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB1E989CAAB49DEFBE3929A /* Pods_ProjetTest.framework */; };
 		303AF40006FAF6FB247EE4AE /* Pods_WeSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0176F7E517337CAA732C4B6 /* Pods_WeSocial.framework */; };
+		9409B16D1E979F4800152BB2 /* Toucan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9409B16C1E979F4800152BB2 /* Toucan.swift */; };
 		9422BE6D1E703A32002C05DF /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE651E703A32002C05DF /* alarm.png */; };
 		9422BE6E1E703A32002C05DF /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE661E703A32002C05DF /* background.png */; };
 		9422BE6F1E703A32002C05DF /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE671E703A32002C05DF /* facebook.png */; };
 		9422BE701E703A32002C05DF /* feather.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE681E703A32002C05DF /* feather.png */; };
-		9422BE711E703A32002C05DF /* logoMessenger.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE691E703A32002C05DF /* logoMessenger.png */; };
 		9422BE721E703A32002C05DF /* LogoWS.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE6A1E703A32002C05DF /* LogoWS.png */; };
 		9422BE731E703A32002C05DF /* LogoWsWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE6B1E703A32002C05DF /* LogoWsWhite.png */; };
 		9422BE741E703A32002C05DF /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE6C1E703A32002C05DF /* settings.png */; };
 		943CC7CA1E702885005872BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943CC7C91E702885005872BD /* AppDelegate.swift */; };
 		943CC7CC1E702885005872BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943CC7CB1E702885005872BD /* ViewController.swift */; };
-		943CC7CF1E702885005872BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 943CC7CD1E702885005872BD /* Main.storyboard */; };
 		943CC7D21E702885005872BD /* ProjetTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 943CC7D01E702885005872BD /* ProjetTest.xcdatamodeld */; };
 		943CC7D41E702885005872BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 943CC7D31E702885005872BD /* Assets.xcassets */; };
 		943CC7D71E702885005872BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 943CC7D51E702885005872BD /* LaunchScreen.storyboard */; };
@@ -28,25 +26,27 @@
 		943CC7E31E702895005872BD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943CC7E01E702895005872BD /* FBSDKLoginKit.framework */; };
 		943CC7ED1E7032E8005872BD /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943CC7EC1E7032E8005872BD /* GoogleMapViewController.swift */; };
 		943CC7EF1E703313005872BD /* AABlurtAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943CC7EE1E703313005872BD /* AABlurtAlertController.swift */; };
+		948E1BD21E94D82700298C0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948E1BD01E94D82700298C0C /* Main.storyboard */; };
+		948E1BD51E952D3200298C0C /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 948E1BD31E952D3200298C0C /* fb.png */; };
+		948E1BD61E952D3200298C0C /* facebookmessenger.png in Resources */ = {isa = PBXBuildFile; fileRef = 948E1BD41E952D3200298C0C /* facebookmessenger.png */; };
 		94909F561E70400A005C2967 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94909F551E70400A005C2967 /* Navigation.swift */; };
 		949FF8191E7BF2EB0068E65A /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FF8181E7BF2EB0068E65A /* PreferenceViewController.swift */; };
+		94F646061E8D35E10078D24B /* popUpMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F646051E8D35E10078D24B /* popUpMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		18698BB3843C7ED992379355 /* Pods-ProjetTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjetTest/Pods-ProjetTest.debug.xcconfig"; sourceTree = "<group>"; };
 		2B436E9918044FCF91644D94 /* Pods-WeSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeSocial/Pods-WeSocial.debug.xcconfig"; sourceTree = "<group>"; };
+		9409B16C1E979F4800152BB2 /* Toucan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toucan.swift; sourceTree = "<group>"; };
 		9422BE651E703A32002C05DF /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
 		9422BE661E703A32002C05DF /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		9422BE671E703A32002C05DF /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		9422BE681E703A32002C05DF /* feather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feather.png; sourceTree = "<group>"; };
-		9422BE691E703A32002C05DF /* logoMessenger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoMessenger.png; sourceTree = "<group>"; };
 		9422BE6A1E703A32002C05DF /* LogoWS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoWS.png; sourceTree = "<group>"; };
 		9422BE6B1E703A32002C05DF /* LogoWsWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoWsWhite.png; sourceTree = "<group>"; };
 		9422BE6C1E703A32002C05DF /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		943CC7C61E702885005872BD /* WeSocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeSocial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		943CC7C91E702885005872BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		943CC7CB1E702885005872BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		943CC7CE1E702885005872BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		943CC7D11E702885005872BD /* ProjetTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProjetTest.xcdatamodel; sourceTree = "<group>"; };
 		943CC7D31E702885005872BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		943CC7D61E702885005872BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,12 +56,14 @@
 		943CC7E01E702895005872BD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		943CC7EC1E7032E8005872BD /* GoogleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		943CC7EE1E703313005872BD /* AABlurtAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AABlurtAlertController.swift; sourceTree = "<group>"; };
+		948E1BD11E94D82700298C0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		948E1BD31E952D3200298C0C /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb.png; sourceTree = "<group>"; };
+		948E1BD41E952D3200298C0C /* facebookmessenger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookmessenger.png; sourceTree = "<group>"; };
 		94909F551E70400A005C2967 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		949FF8181E7BF2EB0068E65A /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
+		94F646051E8D35E10078D24B /* popUpMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpMessage.swift; sourceTree = "<group>"; };
 		ABA13F1DFD5DD141C489980B /* Pods-WeSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeSocial/Pods-WeSocial.release.xcconfig"; sourceTree = "<group>"; };
 		E0176F7E517337CAA732C4B6 /* Pods_WeSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEB1E989CAAB49DEFBE3929A /* Pods_ProjetTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjetTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7129CC9EE94D48047DD898B /* Pods-ProjetTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjetTest/Pods-ProjetTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,6 @@
 				943CC7E11E702895005872BD /* Bolts.framework in Frameworks */,
 				943CC7E21E702895005872BD /* FBSDKCoreKit.framework in Frameworks */,
 				943CC7E31E702895005872BD /* FBSDKLoginKit.framework in Frameworks */,
-				209CCC27BC14FA44DAF093CE /* Pods_ProjetTest.framework in Frameworks */,
 				303AF40006FAF6FB247EE4AE /* Pods_WeSocial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,7 +84,6 @@
 		4F2B7BB05CFCE23CF7ADDE9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EEB1E989CAAB49DEFBE3929A /* Pods_ProjetTest.framework */,
 				E0176F7E517337CAA732C4B6 /* Pods_WeSocial.framework */,
 			);
 			name = Frameworks;
@@ -115,15 +115,16 @@
 				943CC7C91E702885005872BD /* AppDelegate.swift */,
 				943CC7CB1E702885005872BD /* ViewController.swift */,
 				943CC7EC1E7032E8005872BD /* GoogleMapViewController.swift */,
+				948E1BD01E94D82700298C0C /* Main.storyboard */,
 				9422BE651E703A32002C05DF /* alarm.png */,
 				9422BE661E703A32002C05DF /* background.png */,
 				9422BE671E703A32002C05DF /* facebook.png */,
 				9422BE681E703A32002C05DF /* feather.png */,
-				9422BE691E703A32002C05DF /* logoMessenger.png */,
+				948E1BD31E952D3200298C0C /* fb.png */,
+				948E1BD41E952D3200298C0C /* facebookmessenger.png */,
 				9422BE6A1E703A32002C05DF /* LogoWS.png */,
 				9422BE6B1E703A32002C05DF /* LogoWsWhite.png */,
 				9422BE6C1E703A32002C05DF /* settings.png */,
-				943CC7CD1E702885005872BD /* Main.storyboard */,
 				943CC7DE1E702895005872BD /* Bolts.framework */,
 				943CC7DF1E702895005872BD /* FBSDKCoreKit.framework */,
 				943CC7E01E702895005872BD /* FBSDKLoginKit.framework */,
@@ -132,6 +133,8 @@
 				943CC7D81E702885005872BD /* Info.plist */,
 				943CC7D01E702885005872BD /* ProjetTest.xcdatamodeld */,
 				94909F551E70400A005C2967 /* Navigation.swift */,
+				94F646051E8D35E10078D24B /* popUpMessage.swift */,
+				9409B16C1E979F4800152BB2 /* Toucan.swift */,
 			);
 			name = WeSocial;
 			path = ProjetTest;
@@ -140,8 +143,6 @@
 		C7E794D9768A0F3CC2475591 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				18698BB3843C7ED992379355 /* Pods-ProjetTest.debug.xcconfig */,
-				F7129CC9EE94D48047DD898B /* Pods-ProjetTest.release.xcconfig */,
 				2B436E9918044FCF91644D94 /* Pods-WeSocial.debug.xcconfig */,
 				ABA13F1DFD5DD141C489980B /* Pods-WeSocial.release.xcconfig */,
 			);
@@ -216,12 +217,13 @@
 				9422BE6F1E703A32002C05DF /* facebook.png in Resources */,
 				9422BE741E703A32002C05DF /* settings.png in Resources */,
 				9422BE6E1E703A32002C05DF /* background.png in Resources */,
+				948E1BD51E952D3200298C0C /* fb.png in Resources */,
+				948E1BD61E952D3200298C0C /* facebookmessenger.png in Resources */,
+				948E1BD21E94D82700298C0C /* Main.storyboard in Resources */,
 				9422BE701E703A32002C05DF /* feather.png in Resources */,
 				9422BE6D1E703A32002C05DF /* alarm.png in Resources */,
 				9422BE731E703A32002C05DF /* LogoWsWhite.png in Resources */,
 				943CC7D41E702885005872BD /* Assets.xcassets in Resources */,
-				9422BE711E703A32002C05DF /* logoMessenger.png in Resources */,
-				943CC7CF1E702885005872BD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +287,9 @@
 				943CC7ED1E7032E8005872BD /* GoogleMapViewController.swift in Sources */,
 				94909F561E70400A005C2967 /* Navigation.swift in Sources */,
 				943CC7CA1E702885005872BD /* AppDelegate.swift in Sources */,
+				9409B16D1E979F4800152BB2 /* Toucan.swift in Sources */,
 				949FF8191E7BF2EB0068E65A /* PreferenceViewController.swift in Sources */,
+				94F646061E8D35E10078D24B /* popUpMessage.swift in Sources */,
 				943CC7EF1E703313005872BD /* AABlurtAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,20 +297,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		943CC7CD1E702885005872BD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				943CC7CE1E702885005872BD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		943CC7D51E702885005872BD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				943CC7D61E702885005872BD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		948E1BD01E94D82700298C0C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				948E1BD11E94D82700298C0C /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -407,6 +411,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B436E9918044FCF91644D94 /* Pods-WeSocial.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 69R2XL3WDR;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -426,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ABA13F1DFD5DD141C489980B /* Pods-WeSocial.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 69R2XL3WDR;
 				FRAMEWORK_SEARCH_PATHS = (

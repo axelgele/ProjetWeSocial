@@ -12,6 +12,9 @@ import FBSDKLoginKit
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     
+    
+   
+    
     //Creation du bouton Facebook
     let loginButton: FBSDKLoginButton = {
         let button = FBSDKLoginButton()
@@ -50,11 +53,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.view.insertSubview(backgroundImage, at:0)
         //
         let hauteur = self.view.frame.size.height
-        print("WEEEESH", hauteur)
         self.userPreference.set(hauteur, forKey: "screenHeight")
         
         let largeur = self.view.frame.size.width
-        print("WEEEEESH", largeur)
         self.userPreference.set(largeur, forKey: "screenWidth")
         
         //Ajout du boutton a la vue
@@ -63,8 +64,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         //
         
         //On affiche le token du Profil FB et on apelle la fonction fetchProfile()
-        if let token = FBSDKAccessToken.current() {
-            print(token)
+        if (FBSDKAccessToken.current()) != nil {
+            self.userPreference.value(forKey: "idFB")
             fetchProfile()
         }
         //
@@ -102,30 +103,22 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         //Récupération des informations
         graph?.start(completionHandler: { (connection, result, error) -> Void in
             
-            //Si une erreur survient on l'affiche sinon on affiche les informations du Profil
-            if ((error) != nil)
-            {
-                // Process error
-                print("Error: \(error)")
-            }
-            else {
-                print(result)
-            }
-            //
-            
             //Stockage des informations
             dict = (result as? NSDictionary)!
             let idUser = dict["id"] as! String
+
             let first_name = dict["first_name"] as! String
-            let email = dict["email"] as! String
+            
+            /*let email = dict["email"] as! String
+            print(email)
+            */
             let last_name = dict["last_name"] as! String
             let gender = dict["gender"] as! String
-            //
+           
                         
             //Récupération de la PPLarge
             let picture = dict["picture"] as! NSDictionary, data = picture["data"] as! NSDictionary, urlString = data["url"] as! String, urlImage = URL(string: urlString)
             let dt = try? Data.init(contentsOf: urlImage!)
-            print("url Image : \(urlString)")
             
             let ppMkr = "http://graph.facebook.com/\(idUser)/picture?type=normal"
             let urlppMkr = URL(string: ppMkr)
@@ -141,21 +134,16 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             self.userPreference.set(dtMkr, forKey: "ppMkr")
             //
             
-            print(idUser)
-            print(email)
-            print(first_name)
-            print(last_name)
-            print(gender)
             
             //Se Connecter à la bdd
-            let myUrl = URL(string: "http://www.julienattard.fr/projects/WeSocialApp/webservice/getUser.php")
+            let myUrl = URL(string: "http://julienattard.fr/projects/WeSocialApp/webservice/getUser.php")
             var request = URLRequest(url:myUrl!)
             request.httpMethod = "POST"
             //
             
             
             //Requete
-            let postString = "idfb=\(idUser)&nom=\(last_name)&prenom=\(first_name)&email=\(email)&birthday=&gender=\(gender)" as NSString
+            let postString = "idfb=\(idUser)&nom=\(last_name)&prenom=\(first_name)&email=pierregriseri@hotmail.fr&birthday=&gender=\(gender)" as NSString
             request.httpBody = postString.data(using: String.Encoding.utf8.rawValue)
             let task = URLSession.shared.dataTask(with: request) { (data: Data?, reponse: URLResponse?, error: Error?) in
                 if error != nil
@@ -170,8 +158,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     //
                     
                     
-                    print(json?["id"] as! String)
-                    print(json?["success"] as! String)
                     
                     //Stockage des réponses JSON sur le périphérique
                     self.userPreference.set(json?["id"], forKey: "idBD")
