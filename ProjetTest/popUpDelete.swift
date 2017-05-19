@@ -1,41 +1,32 @@
 //
-//  popUpMessage.swift
+//  popUpDelete.swift
 //  WeSocial
 //
-//  Created by GELE Axel on 30/03/2017.
+//  Created by GELE Axel on 03/05/2017.
 //  Copyright © 2017 LPDAM. All rights reserved.
 //
 
+
 import UIKit
 
-public enum popUpMessageActionStyle {
+public enum popUpDeleteActionStyle {
     case `default`
 }
 
 
-open class popUpMessageAction: UIButton {
-    fileprivate var handler: ((popUpMessageAction) -> Void)? = nil
-    fileprivate var style: popUpMessageActionStyle = popUpMessageActionStyle.default
-    fileprivate var parent: popUpMessageController? = nil
+open class popUpDeleteAction: UIButton {
+    fileprivate var handler: ((popUpDeleteAction) -> Void)? = nil
+    fileprivate var style: popUpDeleteActionStyle = popUpDeleteActionStyle.default
+    fileprivate var parent: popUpDeleteController? = nil
     
     
-    public init(title: String?, style: popUpMessageActionStyle, handler: ((popUpMessageAction) -> Void)?) {
+    public init(title: String?, style: popUpDeleteActionStyle, handler: ((popUpDeleteAction) -> Void)?) {
         super.init(frame: CGRect.zero)
         
         self.style = style
         self.handler = handler
         
         
-        self.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
-        self.setTitle(title, for: UIControlState.normal)
-        
-        switch self.style {
-        default:
-            self.setTitleColor(UIColor.white, for: UIControlState.normal)
-            self.backgroundColor = UIColor(red:0.31, green:0.57, blue:0.87, alpha:1.00)
-            self.layer.borderColor = UIColor(red:0.17, green:0.38, blue:0.64, alpha:1.00).cgColor
-            
-        }
         self.setTitleColor(self.titleColor(for: UIControlState.normal)?.withAlphaComponent(0.5), for: UIControlState.highlighted)
         self.layer.borderWidth = 0
         self.layer.cornerRadius = 5
@@ -48,14 +39,14 @@ open class popUpMessageAction: UIButton {
         super.init(coder: aDecoder)
     }
     
-    @objc fileprivate func buttonTapped(_ sender: popUpMessageAction) {
+    @objc fileprivate func buttonTapped(_ sender: popUpDeleteAction) {
         self.parent?.dismiss(animated: true, completion: {
             self.handler?(sender)
         })
     }
 }
 
-open class popUpMessageController: UIViewController, UITextViewDelegate {
+open class popUpDeleteController: UIViewController, UITextViewDelegate {
     open var blurEffectStyle: UIBlurEffectStyle = .light
     open var imageHeight: Float = 175
     
@@ -65,7 +56,6 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
     fileprivate var alertView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        
         view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
         view.layer.cornerRadius = 5
         view.layer.shadowColor = UIColor.black.cgColor
@@ -86,36 +76,126 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
     
     open let alertTitle : UILabel = {
         let lbl = UILabel()
+        lbl.text = "Votre date de naissance ?"
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont.boldSystemFont(ofSize: 17)
-        lbl.textColor = UIColor(red:0.20, green:0.22, blue:0.26, alpha:1.00)
+        lbl.textColor = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0)
         lbl.textAlignment = .center
         return lbl
     }()
     
-    open let edittext : UITextView = {
+    open let edittextDD : UITextField = {
         let userPref = UserDefaults.standard
         var screenWidth = userPref.value(forKey: "screenWidth") as! Float
-        screenWidth = screenWidth - 90
-        let rect        = CGRect(x: 20, y: 20, width: Double(screenWidth) , height: 50.2)
-        let textView    = UITextView(frame: rect)
+        screenWidth = screenWidth / 6
+        let rect        = CGRect(x: 20, y: 60, width: Double(screenWidth) , height: 50.2)
+        let textView    = UITextField(frame: rect)
         textView.font               = UIFont(name: "Helvetica", size: 15)
         textView.textColor          = UIColor.lightGray
         textView.backgroundColor    = UIColor.white
         textView.layer.borderColor  = UIColor.lightGray.cgColor
         textView.layer.borderWidth  = 1.0
-        textView.text               = "Enter message here"
+        textView.text               = "DD"
+        textView.textAlignment      = .center
         textView.layer.borderColor  = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0).cgColor
         return textView
     }()
     
+
+    open let labelMail  : UILabel = {
+        let userPref = UserDefaults.standard
+        var screenWidth = userPref.value(forKey: "screenWidth") as! Float
+        let rect        = CGRect(x: 30, y: 110, width: 100 , height: 50.2)
+        let textView    = UILabel(frame: rect)
+        textView.font  = UIFont(name: "Helvetica", size: 15)
+        textView.font = UIFont.boldSystemFont(ofSize: 17)
+        textView.textColor = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0)
+        textView.text               = "Votre Mail ?"
+        textView.textAlignment      = .center
+        return textView
+    }()
+    
+    
+    open let edittextMail : UITextField = {
+        let userPref = UserDefaults.standard
+        var screenWidth = userPref.value(forKey: "screenWidth") as! Float
+        screenWidth = screenWidth / 6
+        let rect        = CGRect(x: 20, y: 160, width: 200 , height: 50.2)
+        let textView    = UITextField(frame: rect)
+        textView.font               = UIFont(name: "Helvetica", size: 15)
+        textView.textColor          = UIColor.lightGray
+        textView.backgroundColor    = UIColor.white
+        textView.layer.borderColor  = UIColor.lightGray.cgColor
+        textView.layer.borderWidth  = 1.0
+        textView.text               = "exemple@mail.com"
+        textView.textAlignment      = .center
+        textView.layer.borderColor  = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0).cgColor
+        return textView
+    }()
+
+    
+    open let labelsupprimer : UILabel = {
+        let userPref = UserDefaults.standard
+        var screenWidth = userPref.value(forKey: "screenWidth") as! Float
+        screenWidth = screenWidth / 2
+        let rect        = CGRect(x: 20, y: 20, width: Double(screenWidth) , height: 50.2)
+        let textView    = UILabel(frame: rect)
+        textView.font               = UIFont(name: "Helvetica", size: 15)
+//        textView.text               = "Votre date de naissance ?"
+        textView.textAlignment      = .center
+        textView.textColor = UIColor.black
+        textView.layer.borderColor  = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0).cgColor
+        return textView
+
+    }()
+    
+    open let edittextYYYY : UITextField = {
+        let userPref = UserDefaults.standard
+        var screenWidth = userPref.value(forKey: "screenWidth") as! Float
+        screenWidth = screenWidth / 6
+        let rect        = CGRect(x: 140, y: 60, width: Double(screenWidth) , height: 50.2)
+        let textView    = UITextField(frame: rect)
+        textView.font               = UIFont(name: "Helvetica", size: 15)
+        textView.textColor          = UIColor.lightGray
+        textView.backgroundColor    = UIColor.white
+        textView.layer.borderColor  = UIColor.lightGray.cgColor
+        textView.layer.borderWidth  = 1.0
+        textView.text               = "YYYY"
+        textView.textAlignment      = .center
+        textView.layer.borderColor  = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0).cgColor
+        return textView
+    }()
+
+    
+    open let edittextMM : UITextField = {
+        let userPref = UserDefaults.standard
+        var screenWidth = userPref.value(forKey: "screenWidth") as! Float
+        screenWidth = screenWidth / 6
+        let rect        = CGRect(x: 80, y: 60, width: Double(screenWidth) , height: 50.2)
+        let textView    = UITextField(frame: rect)
+        textView.font               = UIFont(name: "Helvetica", size: 15)
+        textView.textColor          = UIColor.lightGray
+        textView.backgroundColor    = UIColor.white
+        textView.layer.borderColor  = UIColor.lightGray.cgColor
+        textView.layer.borderWidth  = 1.0
+        textView.text               = "MM"
+        textView.textAlignment      = .center
+        textView.layer.borderColor  = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0).cgColor
+        return textView
+    }()
+
+    
     open let button : UIButton = {
         
-        let monBoutton = UIButton(type: UIButtonType.system)
+        let monBoutton = UIButton()
         monBoutton.setTitle("Publier", for: .normal)
-        
+        monBoutton.setTitleColor(UIColor.blue, for: .normal)
+        monBoutton.layer.borderColor  = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0).cgColor
+
         return monBoutton
     }()
+    
+    
     
     fileprivate let buttonsStackView : UIStackView = {
         let sv = UIStackView()
@@ -131,7 +211,7 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) n'a pas etait implemente")
     }
     
     fileprivate func setup() {
@@ -146,17 +226,20 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
         self.view.addSubview(alertView)
         self.alertView.addSubview(alertImage)
         self.alertView.addSubview(alertTitle)
-        self.alertView.addSubview(edittext)
+        self.alertView.addSubview(edittextDD)
+        self.alertView.addSubview(edittextMM)
+        self.alertView.addSubview(edittextYYYY)
+        self.alertView.addSubview(labelsupprimer)
+        self.alertView.addSubview(edittextMail)
         self.alertView.addSubview(button)
-
-        
-        self.alertView.addSubview(buttonsStackView)
-        // Dissmiss la popup
-        if buttonsStackView.arrangedSubviews.count <= 0 {
+        self.alertView.addSubview(labelMail)
+                self.alertView.addSubview(buttonsStackView)
+        if buttonsStackView.arrangedSubviews.count <= 1 {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnBackground))
             self.backgroundImage.isUserInteractionEnabled = true
             self.backgroundImage.addGestureRecognizer(tapGesture)
         }
+
         
         setupConstraints()
     }
@@ -170,40 +253,66 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
             "alertView": alertView,
             "alertImage": alertImage,
             "alertTitle": alertTitle,
-            "edittext": edittext,
-            "button" : button,
+            "editTextMM": edittextMM,
+            "editTextDD" : edittextDD,
+            "edittextYYYY" : edittextYYYY,
+            "labelsupprimer" : labelsupprimer,
+            "edittextMail" : edittextMail,
+            "labelMail" : labelMail,
             "buttonsStackView": buttonsStackView
         ]
-        let spacing = 16
+        let spacing = 5
+        
+        
         let screenWidth = userPref.value(forKey: "screenWidth") as! Float
+        let screenHeight = userPref.value(forKey: "screenHeight") as! Float
+        
+        let dividedHeight = screenHeight / 8 * 2
         let dividedWidth = screenWidth / 8 * 7
         
         let viewMetrics: [String: Any] = [
-            "margin": spacing * 5,
+            "margin": spacing * 2,
             "spacing": spacing,
             "alertViewWidth" : dividedWidth,
             "alertImageHeight": (alertImage.image != nil) ? imageHeight : 0,
-            "alertTitleHeight": 22,
-            "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 90 : 0,
+            "alertTitleHeight": 50,
+            "screenWidth" : dividedHeight,
+            "buttonsStackViewHeight":  150
             ]
         
-        let edittextVconstraint = (edittext.text != nil) ? "spacing-[edittext]-" : ""
+        let alertSubtitleVconstraint = (edittextMM.text != nil) ? "spacing-[edittextYYYY]-" : "5"
+        let alertSubtitleV = (edittextMM.text != nil) ? "spacing-[edittextMail]-" : "5"
+
         [NSLayoutConstraint(item: alertView, attribute: .centerX, relatedBy: .equal,
                             toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
          NSLayoutConstraint(item: alertView, attribute: .centerY, relatedBy: .equal,
                             toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
             ].forEach { self.view.addConstraint($0)}
-        [NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(edittextVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
+        
+        
+        
+       [NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(alertSubtitleVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
             options: [], metrics: viewMetrics, views: viewsDict),
+         
          NSLayoutConstraint.constraints(withVisualFormat: "H:[alertView(alertViewWidth)]",
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertImage]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertTitle]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
-         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[edittext]-margin-|",
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[editTextMM]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
-         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[button]-margin-|",
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[labelsupprimer]-margin-|",
+                                        options: [], metrics: viewMetrics, views: viewsDict),
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[editTextDD]-margin-|",
+                                        options: [], metrics: viewMetrics, views: viewsDict),
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[edittextYYYY]-margin-|",
+                                        options: [], metrics: viewMetrics, views: viewsDict),
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[labelsupprimer]-margin-|",
+                                        options: [], metrics: viewMetrics, views: viewsDict),
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[edittextMail]-margin-|",
+                                        options: [], metrics: viewMetrics, views: viewsDict),
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[labelMail]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[buttonsStackView]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict)
@@ -214,7 +323,6 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
         super.viewWillAppear(animated)
         
         setup()
-                
         
         backgroundImage.image = snapshot()
         let blurEffect = UIBlurEffect(style: blurEffectStyle)
@@ -231,7 +339,7 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
         backgroundImage.addSubview(blurEffectView)
     }
     
-    open func addAction(action: popUpMessageAction) {
+    open func addAction(action: popUpDeleteAction) {
         action.parent = self
         buttonsStackView.addArrangedSubview(action)
     }

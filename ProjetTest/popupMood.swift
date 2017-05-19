@@ -1,31 +1,27 @@
 //
-//  popUpMessage.swift
-//  WeSocial
+//  AABlurtAlertController.swift
+//  WeSocialSwift
 //
-//  Created by GELE Axel on 30/03/2017.
-//  Copyright © 2017 LPDAM. All rights reserved.
+//  Created by Axel GELE on 03/03/2017.
 //
 
 import UIKit
 
-public enum popUpMessageActionStyle {
-    case `default`
-}
+public enum popUpMoodStyle {
+    case `default`}
 
 
-open class popUpMessageAction: UIButton {
-    fileprivate var handler: ((popUpMessageAction) -> Void)? = nil
-    fileprivate var style: popUpMessageActionStyle = popUpMessageActionStyle.default
-    fileprivate var parent: popUpMessageController? = nil
+open class AAMoodAction: UIButton {
+    fileprivate var handler: ((AAMoodAction) -> Void)? = nil
+    fileprivate var style: popUpMoodStyle = popUpMoodStyle.default
+    fileprivate var parent: MoodController? = nil
     
     
-    public init(title: String?, style: popUpMessageActionStyle, handler: ((popUpMessageAction) -> Void)?) {
+    public init(title: String?, style: popUpMoodStyle, handler: ((AAMoodAction) -> Void)?) {
         super.init(frame: CGRect.zero)
         
         self.style = style
         self.handler = handler
-        
-        
         self.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
         self.setTitle(title, for: UIControlState.normal)
         
@@ -38,7 +34,7 @@ open class popUpMessageAction: UIButton {
         }
         self.setTitleColor(self.titleColor(for: UIControlState.normal)?.withAlphaComponent(0.5), for: UIControlState.highlighted)
         self.layer.borderWidth = 0
-        self.layer.cornerRadius = 5
+        self.layer.cornerRadius = 1
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
         self.layer.shadowRadius = 4
         self.layer.shadowOpacity = 0.1
@@ -48,14 +44,14 @@ open class popUpMessageAction: UIButton {
         super.init(coder: aDecoder)
     }
     
-    @objc fileprivate func buttonTapped(_ sender: popUpMessageAction) {
+    @objc fileprivate func buttonTapped(_ sender: AAMoodAction) {
         self.parent?.dismiss(animated: true, completion: {
             self.handler?(sender)
         })
     }
 }
 
-open class popUpMessageController: UIViewController, UITextViewDelegate {
+open class MoodController: UIViewController {
     open var blurEffectStyle: UIBlurEffectStyle = .light
     open var imageHeight: Float = 175
     
@@ -67,61 +63,61 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         
         view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
-        view.layer.cornerRadius = 5
+        view.layer.cornerRadius = 2
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 15)
         view.layer.shadowRadius = 12
         view.layer.shadowOpacity = 0.22
-        view.layer.borderColor = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0).cgColor
-        view.layer.borderWidth = 2.0
         return view
+    }()
+    
+    open var viewBlue : UIView = {
+       let viewBlue = UIView()
+        viewBlue.backgroundColor = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0)
+        return viewBlue
+        
     }()
     
     open var alertImage : UIImageView = {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.contentMode = .scaleAspectFit
+        imgView.backgroundColor = UIColor.black
         return imgView
     }()
+    
+    open let titleInfo : UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont.boldSystemFont(ofSize: 11)
+        lbl.textColor = UIColor.white
+        lbl.textAlignment = .center
+        return lbl
+    }()
+
     
     open let alertTitle : UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.boldSystemFont(ofSize: 17)
+        lbl.font = UIFont.boldSystemFont(ofSize: 15)
         lbl.textColor = UIColor(red:0.20, green:0.22, blue:0.26, alpha:1.00)
         lbl.textAlignment = .center
         return lbl
     }()
-    
-    open let edittext : UITextView = {
-        let userPref = UserDefaults.standard
-        var screenWidth = userPref.value(forKey: "screenWidth") as! Float
-        screenWidth = screenWidth - 90
-        let rect        = CGRect(x: 20, y: 20, width: Double(screenWidth) , height: 50.2)
-        let textView    = UITextView(frame: rect)
-        textView.font               = UIFont(name: "Helvetica", size: 15)
-        textView.textColor          = UIColor.lightGray
-        textView.backgroundColor    = UIColor.white
-        textView.layer.borderColor  = UIColor.lightGray.cgColor
-        textView.layer.borderWidth  = 1.0
-        textView.text               = "Enter message here"
-        textView.layer.borderColor  = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0).cgColor
-        return textView
-    }()
-    
-    open let button : UIButton = {
-        
-        let monBoutton = UIButton(type: UIButtonType.system)
-        monBoutton.setTitle("Publier", for: .normal)
-        
-        return monBoutton
+    open let alertSubtitle : UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = UIFont.boldSystemFont(ofSize: 12)
+        lbl.textColor = UIColor.black
+        lbl.textAlignment = .left
+        lbl.numberOfLines = 0
+        return lbl
     }()
     
     fileprivate let buttonsStackView : UIStackView = {
         let sv = UIStackView()
         sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.distribution = .fillEqually
-        sv.spacing = 30
+        sv.distribution = .fillProportionally
+        sv.spacing = 80
         return sv
     }()
     
@@ -131,7 +127,7 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) n'a pas etait implemente")
     }
     
     fileprivate func setup() {
@@ -143,16 +139,14 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
         self.backgroundImage.frame = self.view.bounds
         self.backgroundImage.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.view.addSubview(backgroundImage)
+        self.alertView.addSubview(viewBlue)
+        self.viewBlue.addSubview(titleInfo)
         self.view.addSubview(alertView)
-        self.alertView.addSubview(alertImage)
+        self.viewBlue.addSubview(alertImage)
         self.alertView.addSubview(alertTitle)
-        self.alertView.addSubview(edittext)
-        self.alertView.addSubview(button)
-
-        
+        self.alertView.addSubview(alertSubtitle)
         self.alertView.addSubview(buttonsStackView)
-        // Dissmiss la popup
-        if buttonsStackView.arrangedSubviews.count <= 0 {
+        if buttonsStackView.arrangedSubviews.count <= 1 {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnBackground))
             self.backgroundImage.isUserInteractionEnabled = true
             self.backgroundImage.addGestureRecognizer(tapGesture)
@@ -164,58 +158,64 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
     fileprivate func setupConstraints() {
         let userPref = UserDefaults.standard
         
-        
-        
         let viewsDict: [String: Any] = [
             "alertView": alertView,
             "alertImage": alertImage,
+            "titleInfo" : titleInfo, //test
             "alertTitle": alertTitle,
-            "edittext": edittext,
-            "button" : button,
+            "viewBlue" : viewBlue, //Test
+            "alertSubtitle": alertSubtitle,
             "buttonsStackView": buttonsStackView
         ]
-        let spacing = 16
+        let spacing = 0
+        
+        
         let screenWidth = userPref.value(forKey: "screenWidth") as! Float
         let dividedWidth = screenWidth / 8 * 7
         
         let viewMetrics: [String: Any] = [
-            "margin": spacing * 5,
+            "margin": spacing * 2,
             "spacing": spacing,
             "alertViewWidth" : dividedWidth,
             "alertImageHeight": (alertImage.image != nil) ? imageHeight : 0,
-            "alertTitleHeight": 22,
-            "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 90 : 0,
-            ]
+            "alertTitleHeight": 50,
+            "alertSubtitleheight" :50,
+            "buttonsStackViewHeight": 60 //Modifier taille button
+        ]
         
-        let edittextVconstraint = (edittext.text != nil) ? "spacing-[edittext]-" : ""
+        let alertSubtitleVconstraint = (alertSubtitle.text != nil) ? "spacing-[alertSubtitle]-" : ""
         [NSLayoutConstraint(item: alertView, attribute: .centerX, relatedBy: .equal,
                             toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
          NSLayoutConstraint(item: alertView, attribute: .centerY, relatedBy: .equal,
                             toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
             ].forEach { self.view.addConstraint($0)}
-        [NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(edittextVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
-            options: [], metrics: viewMetrics, views: viewsDict),
+                [NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)][alertTitle(alertTitleHeight)]-spacing-[alertSubtitle(alertSubtitleheight)]-[buttonsStackView(buttonsStackViewHeight)]|",
+                    options: [], metrics: viewMetrics, views: viewsDict),
+                 
+                 
          NSLayoutConstraint.constraints(withVisualFormat: "H:[alertView(alertViewWidth)]",
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertImage]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertTitle]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
-         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[edittext]-margin-|",
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-80-[alertSubtitle]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
-         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[button]-margin-|",
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[viewBlue]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
+ 
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[buttonsStackView]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict)
             ].forEach { NSLayoutConstraint.activate($0) }
     }
     
+        
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         setup()
-                
         
+        // Set up blur effect
         backgroundImage.image = snapshot()
         let blurEffect = UIBlurEffect(style: blurEffectStyle)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -231,7 +231,7 @@ open class popUpMessageController: UIViewController, UITextViewDelegate {
         backgroundImage.addSubview(blurEffectView)
     }
     
-    open func addAction(action: popUpMessageAction) {
+    open func addAction(action: AAMoodAction) {
         action.parent = self
         buttonsStackView.addArrangedSubview(action)
     }

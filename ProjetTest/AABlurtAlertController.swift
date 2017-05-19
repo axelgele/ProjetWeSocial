@@ -35,16 +35,11 @@ open class AABlurAlertAction: UIButton {
             self.layer.borderColor = UIColor(red:0.74, green:0.77, blue:0.79, alpha:1.00).cgColor
             break
         case .facebook:
-            let fb = UIImage(named: "facebook.png")
-            self.setImage(fb, for: .normal)
-            self.frame.size.height = 60
+            self.backgroundColor = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0)
+            self.titleLabel?.textAlignment = NSTextAlignment.center
+            self.titleLabel?.textColor = UIColor.white
+            break
 
-            break
-        case .messenger:
-            let messenger = UIImage(named: "facebookmessenger.png")
-            self.setImage(messenger, for: .normal)
-            self.frame.size.height = 60
-            break
         default:
             self.setTitleColor(UIColor.white, for: UIControlState.normal)
             self.backgroundColor = UIColor(red:0.31, green:0.57, blue:0.87, alpha:1.00)
@@ -53,7 +48,7 @@ open class AABlurAlertAction: UIButton {
         }
         self.setTitleColor(self.titleColor(for: UIControlState.normal)?.withAlphaComponent(0.5), for: UIControlState.highlighted)
         self.layer.borderWidth = 0
-        self.layer.cornerRadius = 5
+        self.layer.cornerRadius = 1
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
         self.layer.shadowRadius = 4
         self.layer.shadowOpacity = 0.1
@@ -82,13 +77,11 @@ open class AABlurAlertController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
 
         view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
-        view.layer.cornerRadius = 5
+        view.layer.cornerRadius = 2
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 15)
         view.layer.shadowRadius = 12
         view.layer.shadowOpacity = 0.22
-        view.layer.borderColor = UIColor(red:0.00, green:0.55, blue:0.85, alpha:1.0).cgColor
-        view.layer.borderWidth = 2.0
         return view
     }()
     open var alertImage : UIImageView = {
@@ -100,7 +93,7 @@ open class AABlurAlertController: UIViewController {
     open let alertTitle : UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.boldSystemFont(ofSize: 17)
+        lbl.font = UIFont.boldSystemFont(ofSize: 15)
         lbl.textColor = UIColor(red:0.20, green:0.22, blue:0.26, alpha:1.00)
         lbl.textAlignment = .center
         return lbl
@@ -108,26 +101,28 @@ open class AABlurAlertController: UIViewController {
     open let alertSubtitle : UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.boldSystemFont(ofSize: 14)
-        lbl.textColor = UIColor(red:0.51, green:0.54, blue:0.58, alpha:1.00)
+        lbl.font = UIFont.boldSystemFont(ofSize: 15)
+        lbl.textColor = UIColor.black
         lbl.textAlignment = .center
         lbl.numberOfLines = 0
         return lbl
     }()
-    
-//    fileprivate var button : UIImageView{ //Button Axel
-//        let image = UIImageView()
-//        let button   = UIButton(type: UIButtonType.custom) as UIButton
-//        button.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
-//        button.setImage(#imageLiteral(resourceName: "facebook.png"), for: .normal)
-//        button.addTarget(self, action: Selector("btnTouched:"), for:.touchUpInside)
-//        return image
-//    }
+    open let alertSubtitletwo : UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = UIFont.boldSystemFont(ofSize: 15)
+        lbl.textColor = UIColor.black
+        lbl.textAlignment = .center
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+
+
     
     fileprivate let buttonsStackView : UIStackView = {
         let sv = UIStackView()
         sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.distribution = .fillEqually
+        sv.distribution = .fillProportionally
         sv.spacing = 30
         return sv
     }()
@@ -138,7 +133,7 @@ open class AABlurAlertController: UIViewController {
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) n'a pas etait implemente")
     }
     
     fileprivate func setup() {
@@ -161,11 +156,11 @@ open class AABlurAlertController: UIViewController {
         self.alertView.addSubview(alertTitle)
         // Set up alertSubtitle
         self.alertView.addSubview(alertSubtitle)
+        self.alertView.addSubview(alertSubtitletwo)
         // Set up buttonsStackView
-        //self.alertView.addSubview(buttonsStackView)
         self.alertView.addSubview(buttonsStackView)
         // Set up background Tap
-        if buttonsStackView.arrangedSubviews.count <= 0 {
+        if buttonsStackView.arrangedSubviews.count <= 1 {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnBackground))
             self.backgroundImage.isUserInteractionEnabled = true
             self.backgroundImage.addGestureRecognizer(tapGesture)
@@ -184,26 +179,27 @@ open class AABlurAlertController: UIViewController {
             "alertImage": alertImage,
             "alertTitle": alertTitle,
             "alertSubtitle": alertSubtitle,
+            "alertSubtitletwo" : alertSubtitletwo,
             "buttonsStackView": buttonsStackView
         ]
-        let spacing = 16
+        let spacing = 0
         
-      //  let screenHeight = userPref.value(forKey: "screenHeight") as! Float
-      //  let dividedHeight = screenHeight / 8 * 4
-        print(userPref.value(forKey: "screenHeight")!, "Aloooors")
+        
         
         let screenWidth = userPref.value(forKey: "screenWidth") as! Float
         let dividedWidth = screenWidth / 8 * 7
-        print(userPref.value(forKey: "screenWidth")!, "Alooooors")
         
         let viewMetrics: [String: Any] = [
             "margin": spacing * 2,
             "spacing": spacing,
             "alertViewWidth" : dividedWidth,
             "alertImageHeight": (alertImage.image != nil) ? imageHeight : 0,
-            "alertTitleHeight": 22,
-            "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 90 : 0,
+            "alertTitleHeight": 50,
+            "alertSubtitleheight" :50,
+            "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 50 : 0, //Modifier taille button
         ]
+        
+        // Dictionnaire des contraintes
         
         let alertSubtitleVconstraint = (alertSubtitle.text != nil) ? "spacing-[alertSubtitle]-" : ""
         [NSLayoutConstraint(item: alertView, attribute: .centerX, relatedBy: .equal,
@@ -211,7 +207,7 @@ open class AABlurAlertController: UIViewController {
          NSLayoutConstraint(item: alertView, attribute: .centerY, relatedBy: .equal,
                             toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
             ].forEach { self.view.addConstraint($0)}
-        [NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(alertSubtitleVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
+        [NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)][alertTitle(alertTitleHeight)]-spacing-[alertSubtitle(alertSubtitleheight)]-\(alertSubtitleVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
             options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:[alertView(alertViewWidth)]",
                                         options: [], metrics: viewMetrics, views: viewsDict),
@@ -221,6 +217,9 @@ open class AABlurAlertController: UIViewController {
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertSubtitle]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertSubtitletwo]-margin-|",
+                                        options: [], metrics: viewMetrics, views: viewsDict),
+
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[buttonsStackView]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict)
             ].forEach { NSLayoutConstraint.activate($0) }

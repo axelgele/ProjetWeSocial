@@ -14,37 +14,32 @@ import FBSDKCoreKit
 
 
 
-struct Utilisateurs{
+class Utilisateurs{
     
     var nom: String
     var prenom: String
     var latitude: String
     var longitude: String
     var id_facebook: String
-}
-
-class UtilisateursMarker: NSObject{
-    
-    var nom: String
-    var prenom: String
-    var coordinate: CLLocationCoordinate2D
-    var id_Facebook: String
     var pp: Toucan
+    var coordinate: CLLocationCoordinate2D
     
     init(nom: String, prenom: String, latitude: String, longitude: String, id_facebook: String, pp: Toucan) {
-        
         self.nom = nom
         self.prenom = prenom
+        self.latitude = latitude
+        self.longitude = longitude
         self.coordinate = CLLocationCoordinate2D(latitude: Double(latitude)!, longitude: Double(longitude)!)
-        self.id_Facebook = id_facebook
+        self.id_facebook = id_facebook
         self.pp = pp
     }
-}
 
+}
 
 
 class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate
 {
+    
     var vwGMap = GMSMapView()
     
     
@@ -53,14 +48,34 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
     
     var myTimer: Timer!
     var time: Timer!
-
+    var timerDelete : Timer!
     
     
     //Creation deux tableaux un pour récuperer le json et un autre pour stocker les utilisateurs du JSON
     var utilisateurTab = [Utilisateurs]()
-    var arrayUsers =  [UtilisateursMarker]()
+    //var arrayUsers =  [UtilisateursMarker]()
     var tabMarker = [GMSMarker]()
     
+    @IBAction func popUPDelete(_ sender: Any) {
+        let vc = MoodController()
+        vc.view.bounds.size.height = 200
+        vc.blurEffectStyle = .light
+        
+        let userPref = UserDefaults.standard
+        let screenWidth = userPref.value(forKey: "screenWidth") as! Float
+        let dividedWidth = screenWidth / 8 * 7
+        vc.viewBlue.frame = CGRect(x: 0, y: 0, width: Int(dividedWidth), height: 70)
+        vc.titleInfo.frame = CGRect(x: 50, y: 20, width: 200, height: 50)
+        vc.titleInfo.text = "Poste par Axel il y a 20 minutes"
+        vc.alertTitle.frame = CGRect(x: 20, y: 20, width: 500, height: 500)
+        
+        vc.alertImage.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+
+        vc.alertSubtitle.text = "Qui pour sortir ce soir ?"
+
+        self.present(vc, animated: true, completion: nil)
+
+    }
     
     @IBAction func openMessage(_ sender: Any) {
         let vc = popUpMessageController()
@@ -69,6 +84,7 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         let screenWidth = userPref.value(forKey: "screenWidth") as! Float
         let dividedWidth = screenWidth / 2 * 1.3
         vc.button.frame = CGRect(x: Int(dividedWidth ) , y: 90, width: 50, height: 25)
+        
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -77,9 +93,25 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
     let userPreference = UserDefaults.standard
     
     
+    
     //    MARK: - View Life Cycle Methods
     override func viewDidLoad()
     {
+        //Changement du style de la map
+        do {
+            // Set the map style by passing the URL of the local file.
+            if let styleURL = Bundle.main.url(forResource: "map_style", withExtension: "json") {
+                vwGMap.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        
+        
+        
+        
         super.viewDidLoad()
         vwGMap.delegate = self
         locationManager.delegate = self
@@ -98,12 +130,11 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         locationManager.startUpdatingLocation()
         
         //Déclaration de l'utilisation du timer
-        myTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.requetePost), userInfo: nil, repeats: true)
+        //myTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.requetePost), userInfo: nil, repeats: true)
         
         time = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.getCoord), userInfo: nil, repeats: true)
         
-
-
+        timerDelete = Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(self.clearMarkers), userInfo: nil, repeats: true)
         self.view = vwGMap
         
         
@@ -140,8 +171,9 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
 
        
         //Création de l'image du marqueur
-        let markerImage = UIImage(data: self.userPreference.value(forKey: "ppMkr") as! Data)
-        marker.icon = markerImage?.circleMask
+        let markerImage = Toucan(image: UIImage(data: self.userPreference.value(forKey: "ppMkr") as! Data)!)
+        let ppToucan = markerImage.resize(CGSize(width: 50, height: 50))
+        marker.icon = ppToucan.maskWithEllipse(borderWidth: 0.5, borderColor: UIColor.blue).image
         marker.layer.borderWidth = 1
         marker.layer.backgroundColor = UIColor.black.cgColor
         //marker.appearAnimation = GMSMarkerAnimation.pop
@@ -162,7 +194,9 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         request.httpMethod = "POST"
         
         //Requete
-        let postString = "id=\(userPreference.value(forKey: "id"))&latitude=\(marker.position.latitude))&longitude=\(marker.position.longitude)"
+        let postString = "id_user=\(self.userPreference.value(forKey: "idUser"))&latitude=\(marker.position.latitude))&longitude=\(marker.position.longitude)"
+        //\(userPreference.value(forKey: "idBD"))
+        print(postString)
         request.httpBody = postString.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, reponse: URLResponse?, error: Error?) in
@@ -184,36 +218,35 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         let vc = AABlurAlertController()
-        vc.addAction(action: AABlurAlertAction(title: "", style: AABlurActionStyle.facebook) { _ in
+        vc.addAction(action: AABlurAlertAction(title: "Voir sur Facebook", style: AABlurActionStyle.facebook) { _ in
             var myfacebookUrl = "https://www.facebook.com/"
-            //print(self.userPreference.value(forKey: "id") as! String)
-            for user in self.arrayUsers {
-                let setting = user.id_Facebook
-                //var setting = "axel.gele2"
+            for user in self.utilisateurTab {
+                let setting = user.id_facebook
                 myfacebookUrl = myfacebookUrl.appending(setting)
                 let facebookUrl = URL(string: myfacebookUrl)
-                //print(facebookUrl.baseURL)
                 UIApplication.shared.canOpenURL(facebookUrl!)
-                UIApplication.shared.open(facebookUrl!, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(facebookUrl!, options: [:], completionHandler: nil)
+                } else {
+                    print("iOS version is lower than 10.0")
+                }
             }
            
          })
-        vc.addAction(action: AABlurAlertAction(title: "Start", style: AABlurActionStyle.messenger) { _ in
-            print("start")
-        })
         vc.blurEffectStyle = .light
         
-        
-            for user in self.arrayUsers {
-                if marker.title == user.id_Facebook {
-                    let ppMkr = "http://graph.facebook.com/\(user.id_Facebook)/picture?width=300&height=300"
+            for user in self.utilisateurTab {
+                if marker.title == user.id_facebook {
+                    let ppMkr = "http://graph.facebook.com/\(user.id_facebook)/picture?type=large"
                     let urlppMkr = URL(string: ppMkr)
                     let dtMkr = try? Data.init(contentsOf: urlppMkr!)
-                    vc.alertImage.image = Toucan(image: UIImage(data: dtMkr!)!).maskWithEllipse().image
+                    let image = Toucan(image: UIImage(data: dtMkr!)!)
+                    vc.alertImage.image = image.maskWithEllipse().image
                     vc.imageHeight = 100
                     vc.alertImage.layer.masksToBounds = true
-                    vc.alertTitle.text = user.prenom
-                    vc.alertSubtitle.text = ""
+                    vc.alertTitle.text = user.prenom + "  22 ans"
+                    vc.alertSubtitletwo.text = "---------"
+                    vc.alertSubtitle.text = "Coucou je suis nouveau"
                     self.present(vc, animated: true, completion: nil)
                     return true
                 }
@@ -228,13 +261,16 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
        
         
         //On se connecte à la bdd
-        let url = URL(string: "http://www.julienattard.fr/projects/WeSocialApp/webservice/getCoordinates.php")
+        let url = URL(string: "http://www.julienattard.fr/projects/WeSocialApp/webservice/getMarkers.php")
         
         var request = URLRequest(url:url!)
         
         request.httpMethod = "POST"
-
-        let postString = "userid=\(userPreference.value(forKey: "id"))&latCamera=\(vwGMap.myLocation?.coordinate.latitude)&longCamera=\(vwGMap.myLocation?.coordinate.longitude)"
+        
+        let idUser = userPreference.value(forKey: "idBD")!
+        
+        let postString = "id_user=\(idUser)&latitude=43.617189795910335&longitude=7.07360744146412"
+        print(postString)
         //\(vwGMap.myLocation?.coordinate.latitude) \(vwGMap.myLocation?.coordinate.longitude)
         
         request.httpBody = postString.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
@@ -255,7 +291,7 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
                     do
                     {
                         let myJson = try JSONSerialization.jsonObject(with: content, options: .mutableContainers) as? NSDictionary
-                        let coordinates = myJson?["coordinates"] as! NSArray
+                        let coordinates = myJson?["users"] as! NSArray
                         for index in 0...coordinates.count - 1 {
                             let coord = coordinates[index] as! NSDictionary
                             
@@ -264,49 +300,33 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
                             let lat = coord["latitude"] as! String
                             let lng = coord["longitude"] as! String
                             let idFb = coord["id_facebook"] as! String
-                            
-                            let user = Utilisateurs(nom: nom, prenom: prenom, latitude: lat, longitude: lng, id_facebook: idFb)
-                            self.utilisateurTab.append(user)
-                        }
-                     
-                        
-                        //On remplit un tableau d'utilisateur avec les données du JSON
-                        for utilisateur in self.utilisateurTab{
-                            
-                            
-                            let ppMkr = "http://graph.facebook.com/\(utilisateur.id_facebook)/picture?type=large"
+                            let ppMkr = "http://graph.facebook.com/\(idFb)/picture?type=normal&width=160&height=160"
                             let urlppMkr = URL(string: ppMkr)
                             let dtMkr = try? Data.init(contentsOf: urlppMkr!)
                             let imageMkr = UIImage(data: dtMkr!)
                             let toucanResize = Toucan(image: imageMkr!).resize(CGSize(width: 50, height: 50))
+
                             
-                            
-                            let utilisateursWesocial = UtilisateursMarker(nom: utilisateur.nom,
-                                                                          prenom: utilisateur.prenom,
-                                                                          latitude: utilisateur.latitude,
-                                                                          longitude: utilisateur.longitude,
-                                                                          id_facebook: utilisateur.id_facebook,
-                                                                          pp: toucanResize)
-                            
-                            self.arrayUsers.append(utilisateursWesocial)
-                            
+                            let user = Utilisateurs(nom: nom, prenom: prenom, latitude: lat, longitude: lng, id_facebook: idFb, pp: toucanResize)
+                            self.utilisateurTab.append(user)
                         }
+                     
                         
                         //  On parcourt le tableau pour placer les markers
-                        for users in self.arrayUsers{
+                        for users in self.utilisateurTab{
                             
-                            DispatchQueue.main.async() {
-                                let placeMarker = GMSMarker()
-                                placeMarker.title = users.id_Facebook
-                                
-                                placeMarker.icon = users.pp.maskWithEllipse(borderWidth: 0.5, borderColor: UIColor.blue).image
-                                placeMarker.layer.borderWidth = 1
-                                placeMarker.layer.backgroundColor = UIColor.black.cgColor
-                               // placeMarker.appearAnimation = GMSMarkerAnimation.pop
-                                placeMarker.position = CLLocationCoordinate2D(latitude: users.coordinate.latitude,longitude: users.coordinate.longitude)
-                                //placeMarker.title = users.prenom
-                                placeMarker.map = self.vwGMap
-                                self.tabMarker.append(placeMarker)
+                           DispatchQueue.main.async() {
+                                    let placeMarker = GMSMarker()
+                                    placeMarker.title = users.id_facebook
+                                    placeMarker.tracksViewChanges = false
+                                    placeMarker.icon = users.pp.maskWithEllipse(borderWidth: 0.5, borderColor: UIColor.blue).image
+                                    placeMarker.layer.borderWidth = 1
+                                    placeMarker.layer.backgroundColor = UIColor.black.cgColor
+                                    // placeMarker.appearAnimation = GMSMarkerAnimation.pop
+                                    placeMarker.position = CLLocationCoordinate2D(latitude: users.coordinate.latitude,longitude: users.coordinate.longitude)
+                                    //placeMarker.title = users.prenom
+                                    placeMarker.map = self.vwGMap
+                                    self.tabMarker.append(placeMarker)
                                 
                             }
                             
@@ -329,33 +349,11 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         
     }
     
-}
-
-
-
-extension UIImage{
-    var squared: UIImage? {
-        let lenght = min(size.width, size.height)
-        let maskSize = CGSize(width: lenght, height: lenght)
-        let rect = CGRect(origin: .zero, size: maskSize)
-        UIGraphicsBeginImageContextWithOptions(maskSize, false, scale)
-        draw(in: rect)
-        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
-        UIGraphicsEndImageContext()
-        return image
-    }
-
-    var circleMask: UIImage? {
-        let lenght = min(size.width, size.height)
-        let maskSize = CGSize(width: 70, height: 70)
-        let rect = CGRect(origin: .zero, size: maskSize)
-        UIGraphicsBeginImageContextWithOptions(maskSize, false, scale)
-        UIBezierPath(roundedRect: rect, cornerRadius: lenght/2).addClip()
-        squared?.draw(in: rect)
-        guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
-        UIGraphicsEndImageContext()
-        return result
+    func clearMarkers() {
+        self.vwGMap.clear()
     }
     
 }
+
+
     

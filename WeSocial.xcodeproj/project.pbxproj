@@ -16,6 +16,9 @@
 		9422BE721E703A32002C05DF /* LogoWS.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE6A1E703A32002C05DF /* LogoWS.png */; };
 		9422BE731E703A32002C05DF /* LogoWsWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE6B1E703A32002C05DF /* LogoWsWhite.png */; };
 		9422BE741E703A32002C05DF /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE6C1E703A32002C05DF /* settings.png */; };
+		94353CD51ECC78D90057FAFC /* AgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94353CD41ECC78D90057FAFC /* AgeViewController.swift */; };
+		94353CD71ECDE9510057FAFC /* DeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94353CD61ECDE9510057FAFC /* DeleteViewController.swift */; };
+		94353CD91ECDF7590057FAFC /* map_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 94353CD81ECDF7590057FAFC /* map_style.json */; };
 		943CC7CA1E702885005872BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943CC7C91E702885005872BD /* AppDelegate.swift */; };
 		943CC7CC1E702885005872BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943CC7CB1E702885005872BD /* ViewController.swift */; };
 		943CC7D21E702885005872BD /* ProjetTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 943CC7D01E702885005872BD /* ProjetTest.xcdatamodeld */; };
@@ -26,11 +29,14 @@
 		943CC7E31E702895005872BD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943CC7E01E702895005872BD /* FBSDKLoginKit.framework */; };
 		943CC7ED1E7032E8005872BD /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943CC7EC1E7032E8005872BD /* GoogleMapViewController.swift */; };
 		943CC7EF1E703313005872BD /* AABlurtAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943CC7EE1E703313005872BD /* AABlurtAlertController.swift */; };
+		9469A40A1EB9DA2B007CDBD3 /* popUpDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9469A4091EB9DA2B007CDBD3 /* popUpDelete.swift */; };
 		948E1BD21E94D82700298C0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948E1BD01E94D82700298C0C /* Main.storyboard */; };
 		948E1BD51E952D3200298C0C /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 948E1BD31E952D3200298C0C /* fb.png */; };
 		948E1BD61E952D3200298C0C /* facebookmessenger.png in Resources */ = {isa = PBXBuildFile; fileRef = 948E1BD41E952D3200298C0C /* facebookmessenger.png */; };
 		94909F561E70400A005C2967 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94909F551E70400A005C2967 /* Navigation.swift */; };
+		9493E5D01ECB1C4600D582CA /* popupMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9493E5CF1ECB1C4600D582CA /* popupMood.swift */; };
 		949FF8191E7BF2EB0068E65A /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FF8181E7BF2EB0068E65A /* PreferenceViewController.swift */; };
+		94B040C81EC2FB300087FADB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B040C71EC2FB300087FADB /* TableViewController.swift */; };
 		94F646061E8D35E10078D24B /* popUpMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F646051E8D35E10078D24B /* popUpMessage.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +50,9 @@
 		9422BE6A1E703A32002C05DF /* LogoWS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoWS.png; sourceTree = "<group>"; };
 		9422BE6B1E703A32002C05DF /* LogoWsWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoWsWhite.png; sourceTree = "<group>"; };
 		9422BE6C1E703A32002C05DF /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		94353CD41ECC78D90057FAFC /* AgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeViewController.swift; sourceTree = "<group>"; };
+		94353CD61ECDE9510057FAFC /* DeleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteViewController.swift; sourceTree = "<group>"; };
+		94353CD81ECDF7590057FAFC /* map_style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map_style.json; sourceTree = "<group>"; };
 		943CC7C61E702885005872BD /* WeSocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeSocial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		943CC7C91E702885005872BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		943CC7CB1E702885005872BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,11 +65,14 @@
 		943CC7E01E702895005872BD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		943CC7EC1E7032E8005872BD /* GoogleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		943CC7EE1E703313005872BD /* AABlurtAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AABlurtAlertController.swift; sourceTree = "<group>"; };
+		9469A4091EB9DA2B007CDBD3 /* popUpDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpDelete.swift; sourceTree = "<group>"; };
 		948E1BD11E94D82700298C0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		948E1BD31E952D3200298C0C /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb.png; sourceTree = "<group>"; };
 		948E1BD41E952D3200298C0C /* facebookmessenger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookmessenger.png; sourceTree = "<group>"; };
 		94909F551E70400A005C2967 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		9493E5CF1ECB1C4600D582CA /* popupMood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popupMood.swift; sourceTree = "<group>"; };
 		949FF8181E7BF2EB0068E65A /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
+		94B040C71EC2FB300087FADB /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		94F646051E8D35E10078D24B /* popUpMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpMessage.swift; sourceTree = "<group>"; };
 		ABA13F1DFD5DD141C489980B /* Pods-WeSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeSocial/Pods-WeSocial.release.xcconfig"; sourceTree = "<group>"; };
 		E0176F7E517337CAA732C4B6 /* Pods_WeSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,10 +122,12 @@
 		943CC7C81E702885005872BD /* WeSocial */ = {
 			isa = PBXGroup;
 			children = (
+				94353CD81ECDF7590057FAFC /* map_style.json */,
 				949FF8181E7BF2EB0068E65A /* PreferenceViewController.swift */,
 				943CC7EE1E703313005872BD /* AABlurtAlertController.swift */,
 				943CC7C91E702885005872BD /* AppDelegate.swift */,
 				943CC7CB1E702885005872BD /* ViewController.swift */,
+				94353CD41ECC78D90057FAFC /* AgeViewController.swift */,
 				943CC7EC1E7032E8005872BD /* GoogleMapViewController.swift */,
 				948E1BD01E94D82700298C0C /* Main.storyboard */,
 				9422BE651E703A32002C05DF /* alarm.png */,
@@ -135,6 +149,10 @@
 				94909F551E70400A005C2967 /* Navigation.swift */,
 				94F646051E8D35E10078D24B /* popUpMessage.swift */,
 				9409B16C1E979F4800152BB2 /* Toucan.swift */,
+				9469A4091EB9DA2B007CDBD3 /* popUpDelete.swift */,
+				94B040C71EC2FB300087FADB /* TableViewController.swift */,
+				9493E5CF1ECB1C4600D582CA /* popupMood.swift */,
+				94353CD61ECDE9510057FAFC /* DeleteViewController.swift */,
 			);
 			name = WeSocial;
 			path = ProjetTest;
@@ -215,6 +233,7 @@
 				9422BE721E703A32002C05DF /* LogoWS.png in Resources */,
 				943CC7D71E702885005872BD /* LaunchScreen.storyboard in Resources */,
 				9422BE6F1E703A32002C05DF /* facebook.png in Resources */,
+				94353CD91ECDF7590057FAFC /* map_style.json in Resources */,
 				9422BE741E703A32002C05DF /* settings.png in Resources */,
 				9422BE6E1E703A32002C05DF /* background.png in Resources */,
 				948E1BD51E952D3200298C0C /* fb.png in Resources */,
@@ -285,12 +304,17 @@
 				943CC7D21E702885005872BD /* ProjetTest.xcdatamodeld in Sources */,
 				943CC7CC1E702885005872BD /* ViewController.swift in Sources */,
 				943CC7ED1E7032E8005872BD /* GoogleMapViewController.swift in Sources */,
+				94353CD51ECC78D90057FAFC /* AgeViewController.swift in Sources */,
 				94909F561E70400A005C2967 /* Navigation.swift in Sources */,
 				943CC7CA1E702885005872BD /* AppDelegate.swift in Sources */,
+				9493E5D01ECB1C4600D582CA /* popupMood.swift in Sources */,
 				9409B16D1E979F4800152BB2 /* Toucan.swift in Sources */,
+				94B040C81EC2FB300087FADB /* TableViewController.swift in Sources */,
+				94353CD71ECDE9510057FAFC /* DeleteViewController.swift in Sources */,
 				949FF8191E7BF2EB0068E65A /* PreferenceViewController.swift in Sources */,
 				94F646061E8D35E10078D24B /* popUpMessage.swift in Sources */,
 				943CC7EF1E703313005872BD /* AABlurtAlertController.swift in Sources */,
+				9469A40A1EB9DA2B007CDBD3 /* popUpDelete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +443,7 @@
 					"$(PROJECT_DIR)/ProjetTest",
 				);
 				INFOPLIST_FILE = ProjetTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WeSocial.ProjetTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -439,7 +463,7 @@
 					"$(PROJECT_DIR)/ProjetTest",
 				);
 				INFOPLIST_FILE = ProjetTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WeSocial.ProjetTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";

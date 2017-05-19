@@ -14,7 +14,7 @@ import WARangeSlider
 class PreferenceViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     let limitLength = 1
     let sizeCorner = 2
-    
+    let userPreference = UserDefaults.standard
     var pickerDataSource = ["Homme", "Femme", "Les Deux"]
     var rangeSlider = RangeSlider()
 
@@ -26,8 +26,11 @@ class PreferenceViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var viewAge: UIView!
     @IBOutlet weak var minAge: UILabel!
     @IBOutlet weak var viewVoir: UIView!
-    @IBOutlet weak var viewSwitch: UIView!
+    //@IBOutlet weak var viewSwitch: UIView!
     @IBOutlet weak var viewHumeur: UIView!
+    
+    
+    @IBOutlet weak var abab: UIButton!
     
     
     override func viewDidLoad() {
@@ -36,7 +39,7 @@ class PreferenceViewController: UIViewController, UIPickerViewDataSource, UIPick
         // Do any additional setup after loading the view, typically from a nib.
         self.montreMoi.dataSource = self
         self.montreMoi.delegate = self
-        
+        abab.titleLabel?.textAlignment = .center
         
         //        messageHumeur.textContainer.maximumNumberOfLines = 4
         //        messageHumeur.layer.cornerRadius = 5
@@ -53,11 +56,11 @@ class PreferenceViewController: UIViewController, UIPickerViewDataSource, UIPick
         //        imageView.layer.shouldRasterize = true
         
         //        layoutSwift.layer.cornerRadius = 8
-        
-        rangeSlider.frame = CGRect(x: 5, y: (viewAge.frame.size.height / 2)  , width: (viewAge.frame.size.width ) - 20 , height: 20)
+        let screenwidth = self.userPreference.value(forKey: "screenWidth") as! Int
+        rangeSlider.frame = CGRect(x: 5, y: (Int(viewAge.frame.size.height / 2))  , width: screenwidth - 55  , height: 20)
         rangeSlider.addTarget(self, action:#selector(sliderValueDidChange(sender:)), for: .valueChanged)
-//        rangeSlider.minimumValue = 18
-//        rangeSlider.maximumValue = 55
+        rangeSlider.lowerValue = 18
+        rangeSlider.upperValue = 55
         viewAge.addSubview(rangeSlider)
         
 
@@ -65,7 +68,7 @@ class PreferenceViewController: UIViewController, UIPickerViewDataSource, UIPick
         setSyle(view: viewAge)
         setSyle(view: viewVoir)
         setSyle(view: viewHumeur)
-        setSyle(view: viewSwitch)
+        //setSyle(view: viewSwitch)
         setStyleMess(view: messageHumeur)
     }
     
@@ -122,12 +125,7 @@ class PreferenceViewController: UIViewController, UIPickerViewDataSource, UIPick
         monImageView.layer.shadowOpacity = 0.5
         monImageView.layer.shadowOffset = CGSize.init(width: 1, height: 2)
         monImageView.layer.shouldRasterize = true
-        //
-        //
-        //        monImageView.layer.cornerRadius = 8
-        //
-        //        monImageView.layer.borderColor = UIColor.black.cgColor
-        
+
         
         
     }
