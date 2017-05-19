@@ -1,0 +1,19 @@
+PODS:
+  - GoogleMaps (2.2.0):
+    - GoogleMaps/Maps (= 2.2.0)
+  - GoogleMaps/Base (2.2.0)
+  - GoogleMaps/Maps (2.2.0):
+    - GoogleMaps/Base
+  - WARangeSlider (1.1.1)
+
+DEPENDENCIES:
+  - GoogleMaps
+  - WARangeSlider
+
+SPEC CHECKSUMS:
+  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
+
+PODFILE CHECKSUM: 5d5bbee11edf8905567e182545c6a723e5959f4f
+
+COCOAPODS: 1.1.1
