@@ -28,7 +28,11 @@ class PreferenceViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var viewVoir: UIView!
     //@IBOutlet weak var viewSwitch: UIView!
     @IBOutlet weak var viewHumeur: UIView!
-    
+     var sMoodMesage: String = ""
+    var iChoixSexe: Int = 0
+   
+    var iAgeMin: Int = 0
+    var iAgeMax: Int = 0
     
     @IBOutlet weak var abab: UIButton!
     
@@ -70,11 +74,17 @@ class PreferenceViewController: UIViewController, UIPickerViewDataSource, UIPick
         setSyle(view: viewHumeur)
         //setSyle(view: viewSwitch)
         setStyleMess(view: messageHumeur)
+        getSettings()
     }
     
     func sliderValueDidChange(sender: UISlider){
         let minAgee = Int(rangeSlider.lowerValue)
         let maxAgee = Int(rangeSlider.upperValue)
+        
+        iAgeMin = minAgee
+        iAgeMax = maxAgee
+        
+        
         minAge.text = String(minAgee)
         if(maxAgee == 55) {
             maxAge.text = "55+"
@@ -103,6 +113,26 @@ class PreferenceViewController: UIViewController, UIPickerViewDataSource, UIPick
     //MARK: Delegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerDataSource[row]
+    }
+    
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        //Homme
+        if row == 0
+        {
+            iChoixSexe = 1
+        }
+        //Femme
+        if row == 1
+        {
+            iChoixSexe = 2
+        }
+        //Les Deux
+        if row == 2
+        {
+            iChoixSexe = 0
+        }
+        
     }
     
     // Do any additional setup after loading the view, typically from a nib.
