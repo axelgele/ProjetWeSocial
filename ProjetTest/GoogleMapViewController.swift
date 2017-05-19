@@ -100,9 +100,20 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         //Déclaration de l'utilisation du timer
         myTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.requetePost), userInfo: nil, repeats: true)
         
-        time = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.getCoord), userInfo: nil, repeats: true)
+        //time = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.getCoord), userInfo: nil, repeats: true)
         
 
+        //Changement du style de la map
+        do {
+            // Set the map style by passing the URL of the local file.
+            if let styleURL = Bundle.main.url(forResource: "map_style", withExtension: "json") {
+                vwGMap.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
 
         self.view = vwGMap
         
@@ -223,7 +234,7 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
     }
  
     
-    func getCoord()
+    /*func getCoord()
     {
        
         
@@ -327,7 +338,7 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         }
         task.resume()
         
-    }
+    }*/
     
 }
 

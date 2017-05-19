@@ -84,7 +84,7 @@ Conditions Générales d'Utilisations</string>
         <scene sceneID="5rk-R6-VPf">
             <objects>
                 <navigationController restorationIdentifier="NavigationController" storyboardIdentifier="NavigationController" hidesBottomBarWhenPushed="YES" id="ddC-ef-yCr" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" id="awV-9r-cDf">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" id="awV-9r-cDf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -189,6 +189,11 @@ Conditions Générales d'Utilisations</string>
                                                 <barButtonItem key="leftBarButtonItem" title="Item" id="6QB-cK-TJ5">
                                                     <connections>
                                                         <segue destination="ddC-ef-yCr" kind="presentation" id="DQJ-Ej-SEU"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" title="Enregistrer" id="GVd-a1-g9P">
+                                                    <connections>
+                                                        <action selector="enregistrer:" destination="S41-PY-pEP" id="vRm-tI-X27"/>
                                                     </connections>
                                                 </barButtonItem>
                                             </navigationItem>
@@ -316,10 +321,13 @@ Conditions Générales d'Utilisations</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="facebook" destination="22y-QK-nmx" id="9JV-nU-89l"/>
                         <outlet property="maxAge" destination="IzB-XB-IWD" id="OB8-kY-vOu"/>
                         <outlet property="messageHumeur" destination="XOj-Vd-VKV" id="q4X-3Q-WfS"/>
+                        <outlet property="messenger" destination="gos-zn-sQk" id="00N-b5-4ef"/>
                         <outlet property="minAge" destination="DDr-tP-w6G" id="kXw-AU-MNd"/>
                         <outlet property="montreMoi" destination="xwQ-aR-6Bq" id="rNi-xC-mcW"/>
+                        <outlet property="notif" destination="JFT-qa-0Fw" id="qtN-Xe-i6W"/>
                         <outlet property="viewAge" destination="Vjl-dR-Qg5" id="uAF-Y3-UDf"/>
                         <outlet property="viewHumeur" destination="S9k-5Y-5xm" id="Zc6-Oi-nFq"/>
                         <outlet property="viewSwitch" destination="iDQ-v8-G5g" id="IFf-m7-SvC"/>

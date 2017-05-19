@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		293ED5B11EC9FE5A000ABB49 /* map_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 293ED5B01EC9FE5A000ABB49 /* map_style.json */; };
 		303AF40006FAF6FB247EE4AE /* Pods_WeSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0176F7E517337CAA732C4B6 /* Pods_WeSocial.framework */; };
 		9409B16D1E979F4800152BB2 /* Toucan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9409B16C1E979F4800152BB2 /* Toucan.swift */; };
 		9422BE6D1E703A32002C05DF /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 9422BE651E703A32002C05DF /* alarm.png */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		293ED5B01EC9FE5A000ABB49 /* map_style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map_style.json; sourceTree = "<group>"; };
 		2B436E9918044FCF91644D94 /* Pods-WeSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeSocial/Pods-WeSocial.debug.xcconfig"; sourceTree = "<group>"; };
 		9409B16C1E979F4800152BB2 /* Toucan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toucan.swift; sourceTree = "<group>"; };
 		9422BE651E703A32002C05DF /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				943CC7CB1E702885005872BD /* ViewController.swift */,
 				943CC7EC1E7032E8005872BD /* GoogleMapViewController.swift */,
 				948E1BD01E94D82700298C0C /* Main.storyboard */,
+				293ED5B01EC9FE5A000ABB49 /* map_style.json */,
 				9422BE651E703A32002C05DF /* alarm.png */,
 				9422BE661E703A32002C05DF /* background.png */,
 				9422BE671E703A32002C05DF /* facebook.png */,
@@ -215,6 +218,7 @@
 				9422BE721E703A32002C05DF /* LogoWS.png in Resources */,
 				943CC7D71E702885005872BD /* LaunchScreen.storyboard in Resources */,
 				9422BE6F1E703A32002C05DF /* facebook.png in Resources */,
+				293ED5B11EC9FE5A000ABB49 /* map_style.json in Resources */,
 				9422BE741E703A32002C05DF /* settings.png in Resources */,
 				9422BE6E1E703A32002C05DF /* background.png in Resources */,
 				948E1BD51E952D3200298C0C /* fb.png in Resources */,
